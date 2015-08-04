@@ -47,6 +47,7 @@ GEM
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
     capistrano_colors (0.5.5)
+    chronic (0.10.2)
     closure-compiler (1.1.11)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -159,6 +160,8 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    whenever (0.9.4)
+      chronic (>= 0.6.3)
     yui-compressor (0.12.0)
 
 PLATFORMS
@@ -183,4 +186,5 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   unicorn
+  whenever
   yui-compressor

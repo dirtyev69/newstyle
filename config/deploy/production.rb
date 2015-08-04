@@ -5,7 +5,8 @@ set :bundle_without,  [:development, :test]
 
 set :deploy_to_application_name , 'prod'
 
-set :repository, "git@github.com:dirtyev69/style.git"
+set :repository, "git@github.com:dirtyev69/newstyle.git"
+
 set :branch, 'master'
 set :deploy_to, "/var/www/#{deploy_to_application_name}"
 
@@ -31,4 +32,6 @@ set :keep_releases, 3
 set :unicorn_config, "#{current_path}/config/unicorn.rb"
 
 load '/config/deploy/tasks/tasks.rb'
+
+
 

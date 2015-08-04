@@ -27,6 +27,8 @@ gem 'pg'
 
 gem 'unicorn'
 
+gem 'whenever', require: false
+
 group :assets do
   gem 'closure-compiler'
   gem 'therubyracer'
