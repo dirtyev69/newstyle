@@ -18,8 +18,8 @@ set :symlinks,  [
                   { :label => :db, :path => 'config/database.yml' },
                 ]
 
-require 'whenever/capistrano'
-set :whenever_command, 'bundle exec whenever'
+# require 'whenever/capistrano'
+# set :whenever_command, 'bundle exec whenever'
 
 default_run_options[:pty] = true
 
@@ -43,6 +43,14 @@ set :ssh_options, {
   keys: "~/.ssh/id_rsa_prod"
 }
 
+
+namespace :deploy do
+  task :cope_with_git_repo_relocation do
+    run "if [ -d #{shared_path}/cached-copy ]; then cd #{shared_path}/cached-copy && git remote set-url origin #{repository}; else true; fi"
+  end
+end
+
+before "deploy:update_code", "deploy:cope_with_git_repo_relocation"
 
 # namespace :deploy do
 #   desc 'Application-specific code after update_code'
