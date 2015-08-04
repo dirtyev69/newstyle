@@ -1,0 +1,1 @@
+Mytest::Application.config.secret_key_base = '1d5fec694d22be47d1e3716e46b858972faed93adeb18cbedbfa15a4f35092381ee3c738da47bbbfdbcfe008e3eb0206bf545c41df0233c73be91c1da58757ea'
