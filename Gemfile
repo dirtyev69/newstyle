@@ -25,6 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'pg'
 
+gem 'slim'
+
 gem 'unicorn'
 
 gem 'whenever', require: false
