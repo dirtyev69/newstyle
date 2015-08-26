@@ -13,8 +13,6 @@ gem 'sqlite3'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 
-
-gem 'better_errors'
 gem 'breadcrumbs_on_rails'
 
 
