@@ -36,7 +36,7 @@ gem 'turbolinks'
 
 gem 'kaminari'
 
-gem 'rmagick', :require => 'RMagick'
+gem 'rmagick'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 
