@@ -1,2 +1,10 @@
 ru:
   more: "Показать больше моделей"
+  default_seo_title: "Магазин Стиль - женская обувь Тверь"
+  views:
+    pagination:
+      truncate: '…'
+      next:     'След.'
+      last:     'Последняя'
+      first:    'Первая'
+      previous: 'Пред.'
