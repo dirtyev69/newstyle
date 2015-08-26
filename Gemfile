@@ -37,6 +37,7 @@ gem 'turbolinks'
 gem 'kaminari'
 
 gem 'rmagick'
+gem 'russian'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 
