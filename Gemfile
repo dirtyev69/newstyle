@@ -77,7 +77,7 @@ end
 
 gem 'rails-assets-fotorama'
 gem 'role-rails'
-gem 'russian'
+
 
 gem 'rails-assets-bootstrap-sass'
 
