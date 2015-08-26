@@ -23,6 +23,7 @@ gem 'coffee-rails'
 gem 'sass-rails', '5.0.1'
 gem 'compass', '1.0.3'
 gem 'compass-rails', '2.0.4'
+gem  'chunky_png', '1.3.4'
 
 gem 'daemons'
 
