@@ -1,35 +1,64 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'autoprefixer-rails'
+gem 'authlogic'
+
 gem 'rails', '4.2.0'
-# Use sqlite3 as the database for Active Record
+
 gem 'sqlite3'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
 
-# Use jquery as the JavaScript library
+
+gem 'better_errors'
+gem 'breadcrumbs_on_rails'
+
+
+
+gem "carrierwave"
+gem 'coffee-rails'
+
+gem 'sass-rails', '5.0.1'
+gem 'compass', '1.0.3'
+gem 'compass-rails', '2.0.4'
+
+gem 'daemons'
+
+
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
+gem 'js-routes'
+gem 'jquery-ui-rails'
+
+gem 'turbolinks'
+
+gem 'kaminari'
+
+gem 'rmagick', :require => 'RMagick'
+
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'pg'
+gem 'protected_attributes'
 
 gem 'slim'
+
+gem 'simple_form'
+gem 'skim'
+gem 'scrypt'
 
 gem 'unicorn'
 
 gem 'whenever', require: false
+
+gem 'font-awesome-rails'
+
+
+
 
 group :assets do
   gem 'closure-compiler'
@@ -45,3 +74,21 @@ group :development do
   gem 'rvm-capistrano', require: false
 end
 
+
+
+gem 'rails-assets-fotorama'
+gem 'role-rails'
+gem 'russian'
+
+gem 'rails-assets-bootstrap-sass'
+
+gem 'rails-assets-imagesloaded'
+gem 'rails-assets-masonry'
+gem 'rails-assets-jquery.lazyload'
+gem 'rails-assets-jquery-autosize'
+
+gem 'rails-assets-nprogress'
+gem 'rails-assets-underscore'
+gem 'rails-assets-underscore.string'
+
+gem 'rails-assets-fancybox'

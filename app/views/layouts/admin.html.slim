@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title
+      | Стиль Админка
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application'
+    = stylesheet_link_tag 'admin/application'
+    = javascript_include_tag 'application'
+
+  body
+    = render :partial => 'admin/shared/header'
+    .container
+      / .row
+      /   .col-md-9
+      /     - if show_breadcrumbs?
+      /       = render_breadcrumbs :builder => ::BootstrapBreadcrumbsBuilder
+      /   .col-md-3
+      /     = content_for :actions
+
+      = yield
