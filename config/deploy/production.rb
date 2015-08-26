@@ -31,7 +31,7 @@ set :keep_releases, 3
 # Unicorn config
 set :unicorn_config, "#{current_path}/config/unicorn.rb"
 
-load '/config/deploy/tasks/tasks.rb'
+# load '/config/deploy/tasks/tasks.rb'
 
 
 
