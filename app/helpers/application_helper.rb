@@ -35,6 +35,6 @@ module ApplicationHelper
 
     html += paginate(collection, :options => options, :window => 2, :left => 1, :right => 1)
 
-    content_tag(:div, html.html_safe, class: 'col-md-12 col-xs-12 text-center', role: 'pagination')
+    content_tag(:div, html.html_safe, class: 'pagination_container', role: 'pagination')
   end
 end

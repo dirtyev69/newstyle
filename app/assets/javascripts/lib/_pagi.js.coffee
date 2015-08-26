@@ -32,13 +32,13 @@ class Lib.Pagi
 
         if json?
           $html = $(json.data).css({ opacity: 0 })
-          $list = self.$container.parent()
+          $list = $(document).find('@masonry')
 
-          $list.prepend($html).imagesLoaded(
+          $list.append($html).imagesLoaded(
             ->
               self.$container.html(json.pagination)
               $html.animate({ opacity: 1 })
 
-              $list.masonry('appended', $html, true)
+              $list.append($html)
           )
       )
