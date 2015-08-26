@@ -38,5 +38,5 @@ class Style
 
     # @$container.find('@masonry')
 
-    @$container.imagesLoaded ->
-      $container.find('@masonry').masonry
+    # @$container.imagesLoaded ->
+    @$container.find('@masonry').masonry
