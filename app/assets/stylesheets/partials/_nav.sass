@@ -1,0 +1,50 @@
+.main_header
+  background: #fdfdfd none repeat scroll 0 0
+  padding-top: 10px
+  position: fixed
+  width: 100%
+  z-index: 500
+  .container
+    height: 70px
+
+// .main-header__container
+//   max-width: 989px
+//   display: flex
+//   margin: 0 auto
+//   flex-flow: row nowrap
+//   align-items: center
+//   justify-content: space-between
+.main_header__logo
+  display: inline-block
+  vertical-align: top
+  width: 120px
+  height: 46px
+  float: left
+  text-indent: -9999999px
+  background: asset-data-url('logo.png') 0 0 / cover no-repeat
+  @media (max-width: 992px)
+    margin-left: 20px
+
+.nav-main
+  float: right
+  margin: 20px 0 0 0
+  padding: 0
+  li
+    display: inline-block
+    margin: 0
+    vertical-align: top
+    &.active
+      a
+        color: #b8bfbf
+    a
+      padding: 22px 10px 5px
+      color: #717c7e
+      font-size: 14px
+      text-transform: uppercase
+      &:hover, &:active, &:focus
+        text-decoration: none
+      &:focus
+        outline: none
+      &:hover
+        color: #b8bfbf
+

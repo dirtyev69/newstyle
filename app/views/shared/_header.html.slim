@@ -1,21 +1,34 @@
-.navbar.navbar-default.navbar-static-top
-  .container-fluid.header
-    .navbar-header
-      button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      = link_to root_url, class: 'header__logo' do
+/ .navbar.navbar-default.navbar-static-top
+/   .container-fluid.header
+/     .navbar-header
+/       button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+/         span.sr-only Toggle navigation
+/         span.icon-bar
+/         span.icon-bar
+/         span.icon-bar
+/       = link_to root_url, class: 'header__logo' do
 
-        span Магазин Стиль
+/         span Магазин Стиль
 
 
-    .collapse.navbar-collapse#navbar
-      ul.nav.navbar-nav.navbar-right
-        li class="#{controller_name == 'galleries' && 'active'}"
-          = link_to 'Каталог обуви', galleries_path
-        li class="#{controller_name == 'pages' && action_name == 'contacts' && 'active'}"
-          = link_to 'Контакты', contacts_path
-        li class="#{controller_name == 'pages' && action_name == 'about' && 'active'}"
-          = link_to 'О нас', about_path
+/     .collapse.navbar-collapse#navbar
+/       ul.nav.navbar-nav.navbar-right
+/         li class="#{controller_name == 'galleries' && 'active'}"
+/           = link_to 'Каталог обуви', galleries_path
+/         li class="#{controller_name == 'pages' && action_name == 'contacts' && 'active'}"
+/           = link_to 'Контакты', contacts_path
+/         li class="#{controller_name == 'pages' && action_name == 'about' && 'active'}"
+/           = link_to 'О нас', about_path
+
+.main_header
+  .container
+    = link_to root_url, class: 'main_header__logo' do
+      span Магазин Стиль
+
+    ul.nav-main
+      li class="#{controller_name == 'galleries' && 'active'}"
+        = link_to 'Каталог обуви', galleries_path
+      li class="#{controller_name == 'pages' && action_name == 'contacts' && 'active'}"
+        = link_to 'Контакты', contacts_path
+      li class="#{controller_name == 'pages' && action_name == 'about' && 'active'}"
+        = link_to 'О нас', about_path

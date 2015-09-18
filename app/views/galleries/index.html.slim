@@ -11,41 +11,44 @@ coffee:
 - seo_keywords 'Галерея Обувь Стиль Тверь, обувной магазин Тверь, стильная обувь,
 качественная обувь Тверь'
 
-h1.page-header Каталог обуви
+h1 Каталог обуви
 / p.small скидка на всю коллекцию - 20%
 
-- for gallery in @galleries
-  .gallery
-    h3.gallery__title
-      = gallery.name
-    ul.filter
-      li class="#{'active' if search == nil && !params[:all]}"
-        = link_to 'Все', galleries_path(type: nil)
-      li class="#{'active' if search.to_i == 1}"
-        = link_to 'Туфли', galleries_path(type: 1)
-      li class="#{'active' if search.to_i == 2}"
-        = link_to 'Босоножки', galleries_path(type: 2)
-      li class="#{'active' if search.to_i == 3}"
-        = link_to 'Шлепанцы', galleries_path(type: 3)
-      / li
-      /   = link_to 'Все сразу', galleries_path(all: true)
-    .row.gallery__list@masonry@paginatable data-id="#{gallery.id}"
-      - unless paintings_collection(gallery).present?
-        .well
-          p.lead Извините, товара такого типа пока нет
-      - arr = []
-      -  paintings_collection(gallery).each do |item|
-        - arr.push(item.id)
-        .col-md-4.col-sm-4.col-xs-6
-          .gallery__item
-            / = link_to painting_path(item) do
-            /   = image_tag item.image_url(:thumb)
-            = link_to image_tag(item.image_url(:thumb), class: 'img-responsive'), item.image_url(:full), role: 'fancyboxThumb', rel: 'fancybox', class: 'gallery__item__link'
-    = render_pagination paintings_collection(gallery)
+.row
+  - for gallery in @galleries
+    .col-md-10.col-md-offset-1
+      h3.gallery__title
+        = gallery.name
+      ul.filter
+        li class="#{'active' if search == nil && !params[:all]}"
+          = link_to 'Все', galleries_path(type: nil)
+        li class="#{'active' if search.to_i == 1}"
+          = link_to 'Туфли', galleries_path(type: 1)
+        li class="#{'active' if search.to_i == 2}"
+          = link_to 'Босоножки', galleries_path(type: 2)
+        li class="#{'active' if search.to_i == 3}"
+          = link_to 'Шлепанцы', galleries_path(type: 3)
+        / li
+        /   = link_to 'Все сразу', galleries_path(all: true)
+      .row.gallery__list@masonry@paginatable data-id="#{gallery.id}"
+        - unless paintings_collection(gallery).present?
+          .well
+            p.lead Извините, товара такого типа пока нет
+        - arr = []
+        -  paintings_collection(gallery).each do |item|
+          - arr.push(item.id)
+          .col-md-4.col-sm-4.col-xs-6
+            .gallery__item
+              / = link_to painting_path(item) do
+              /   = image_tag item.image_url(:thumb)
+              = link_to image_tag(item.image_url(:thumb), class: 'img-responsive'), item.image_url(:full), role: 'fancyboxThumb', rel: 'fancybox', class: 'gallery__item__link'
+        .hide
+          - Painting.where('id NOT IN (?)', arr).each do | p |
 
-      / .hide
-      /   - Painting.where('id NOT IN (?)', arr).each do | p |
+            = link_to image_tag(p.image_url(:thumb), class: 'img-responsive'), p.image_url(:full), role: 'fancyboxThumb', rel: 'fancybox', class: 'gallery__item__link'
 
-      /     = link_to image_tag(p.image_url(:thumb), class: 'img-responsive'), p.image_url(:full), role: 'fancyboxThumb', rel: 'fancybox', class: 'gallery__item__link'
+      = render_pagination paintings_collection(gallery)
+
+
 
 
