@@ -2,9 +2,10 @@
   background: #fdfdfd none repeat scroll 0 0
   padding-top: 10px
   position: fixed
+  height: 80px
   width: 100%
   z-index: 500
-  .container
+  @media (max-width: $screen-sm)
     height: 70px
 
 // .main-header__container
@@ -29,10 +30,16 @@
   float: right
   margin: 20px 0 0 0
   padding: 0
+  @media (max-width: $screen-sm)
+    display: none
+    background: #fff
   li
     display: inline-block
     margin: 0
     vertical-align: top
+    @media (max-width: $screen-sm)
+      display: block
+      width: 100%
     &.active
       a
         color: #b8bfbf
@@ -41,10 +48,33 @@
       color: #717c7e
       font-size: 14px
       text-transform: uppercase
+      @media (max-width: $screen-sm)
+        display: block
+        padding: 15px 0 15px 25px
       &:hover, &:active, &:focus
         text-decoration: none
       &:focus
         outline: none
       &:hover
         color: #b8bfbf
+
+.nav-main-opened
+  position: absolute
+  left: 0
+  top: 40px
+  right: 0
+  display: block
+  @media (min-width: $screen-sm)
+    position: static
+
+.nav-main__btn
+  display: none
+  float: right
+  margin: 5px 0 0 0
+  color: #717c7e
+  font-size: 30px
+  &:active,&:hover, &:focus
+    color: #717c7e
+  @media (max-width: $screen-sm)
+    display: block
 

@@ -25,7 +25,9 @@
     = link_to root_url, class: 'main_header__logo' do
       span Магазин Стиль
 
-    ul.nav-main
+    = link_to fa_icon('bars'), 'javascript:void(0)', :onclick => "$('@menu').toggleClass('nav-main-opened');", class: 'nav-main__btn'
+
+    ul.nav-main@menu
       li class="#{controller_name == 'galleries' && 'active'}"
         = link_to 'Каталог обуви', galleries_path
       li class="#{controller_name == 'pages' && action_name == 'contacts' && 'active'}"
