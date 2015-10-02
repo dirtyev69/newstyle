@@ -20,7 +20,7 @@
 /         li class="#{controller_name == 'pages' && action_name == 'about' && 'active'}"
 /           = link_to 'О нас', about_path
 
-.main_header class="#{(controller_name == 'pages' || action_name == 'index') && 'main_header-fixed'}"
+.main_header class="#{(controller_name == 'pages' && action_name == 'index') && 'main_header-fixed'}"
   .container
     = link_to root_url, class: 'main_header__logo' do
       span Магазин Стиль

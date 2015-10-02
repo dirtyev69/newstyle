@@ -11,7 +11,9 @@ namespace 'admin' do
   get '/' => 'dashboard#index'
 
   resources :galleries
-  resources :paintings
+  resources :paintings do
+    resources :previews
+  end
   resources :images, :only => [:create, :update, :destroy]
 
   namespace 'auth' do

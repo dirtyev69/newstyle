@@ -14,5 +14,18 @@
     = f.label :remote_image_url, "or image URL"
     br
     = f.input :remote_image_url
+  .form-group
+    = f.fields_for :previews do |p|
+      = p.file_field :asset, name: "painting[privews_attributes][]"
+
   p.well
     = f.submit
+
+
+- @painting.previews.any?
+  h3.page-header Previews
+  .row
+    - @painting.previews.each do |p|
+      .col-md-3
+        = image_tag(p.asset, class: 'img-responsive')
+        = link_to "Удалить",  admin_painting_preview_path(@painting, p), :confirm => 'Are you sure?', :method => :delete, class: 'button btn btn-default'
