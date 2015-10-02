@@ -36,6 +36,10 @@ class Style
 
     autosize(@$container.find('@autosize'))
 
+    @$container.find('@modal').on 'hidden.bs.modal', ->
+      $(this).removeData('bs.modal')
+      $(this).find('@modalContent').empty()
+
     # @$container.find('@masonry')
 
     # @$container.imagesLoaded ->

@@ -31,3 +31,7 @@ html
     .container.container-main class="#{(controller_name == 'pages' && action_name == 'index') && 'padding-top-none'}"
       = yield
     = render :partial => 'shared/footer'
+    .modal@modal
+      .modal-dialog@modalDialog
+        .modal-content@modalContent
+

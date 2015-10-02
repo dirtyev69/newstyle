@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 root :to => "pages#index"
 resources :galleries, :only => [:index]
 resources :paintings
+get 'show_all' => 'paintings#show_all'
 
 match 'contacts' => 'pages#contacts', :via => :get
 match 'about' => 'pages#about', :via => :get
@@ -14,6 +15,7 @@ namespace 'admin' do
   resources :paintings do
     resources :previews
   end
+
   resources :images, :only => [:create, :update, :destroy]
 
   namespace 'auth' do

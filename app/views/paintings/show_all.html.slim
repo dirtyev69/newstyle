@@ -1,0 +1,11 @@
+.modal-body
+  .container
+    button type="button" class="btn btn-default modal-close" data-dismiss="modal"
+      | X
+    .row.form-group
+      .col-md-6
+        = link_to image_tag(resource_painting.image_url(:full), class: 'img-responsive'), resource_painting.image_url(:full), role: 'fancyboxThumb', rel: 'fancybox'
+    .row
+      - resource_painting.previews.each do |item|
+        .col-md-3
+          = link_to image_tag(item.asset_url, class: 'img-responsive'), item.asset_url, role: 'fancyboxThumb', rel: 'fancybox'

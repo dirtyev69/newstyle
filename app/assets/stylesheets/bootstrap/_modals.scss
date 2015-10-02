@@ -50,7 +50,7 @@
 // Actual modal
 .modal-content {
   position: relative;
-  background-color: $modal-content-bg;
+  background-color: #f7f7f7;
   border: 1px solid $modal-content-fallback-border-color; //old browsers fallback (ie8 etc)
   border: 1px solid $modal-content-border-color;
   border-radius: $border-radius-large;
@@ -99,6 +99,13 @@
   padding: $modal-inner-padding;
 }
 
+.modal-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 99999;
+}
+
 // Footer (for actions)
 .modal-footer {
   padding: $modal-inner-padding;
@@ -130,21 +137,21 @@
   overflow: scroll;
 }
 
-// Scale up the modal
-@media (min-width: $screen-sm-min) {
-  // Automatically set modal's width for larger viewports
-  .modal-dialog {
-    width: $modal-md;
-    margin: 30px auto;
-  }
-  .modal-content {
-    @include box-shadow(0 5px 15px rgba(0,0,0,.5));
-  }
+// // Scale up the modal
+// @media (min-width: $screen-sm-min) {
+//   // Automatically set modal's width for larger viewports
+//   .modal-dialog {
+//     width: $modal-md;
+//     margin: 30px auto;
+//   }
+//   .modal-content {
+//     @include box-shadow(0 5px 15px rgba(0,0,0,.5));
+//   }
 
-  // Modal sizes
-  .modal-sm { width: $modal-sm; }
-}
+//   // Modal sizes
+//   .modal-sm { width: $modal-sm; }
+// }
 
-@media (min-width: $screen-md-min) {
-  .modal-lg { width: $modal-lg; }
-}
+// @media (min-width: $screen-md-min) {
+//   .modal-lg { width: $modal-lg; }
+// }

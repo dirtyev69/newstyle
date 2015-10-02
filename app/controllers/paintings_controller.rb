@@ -6,6 +6,11 @@ class PaintingsController < ApplicationController
     resource_painting
   end
 
+  def show_all
+    # resource_painting
+    render :layout => false
+  end
+
   def new
     @painting = Painting.new(:gallery_id => params[:gallery_id])
   end

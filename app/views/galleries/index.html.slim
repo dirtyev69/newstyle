@@ -39,11 +39,15 @@ h1 Каталог обуви
         .gallery__item
           / = link_to painting_path(item) do
           /   = image_tag item.image_url(:thumb)
-          = link_to image_tag(item.image_url(:full), class: 'img-responsive'), item.image_url(:full), role: 'fancyboxThumb', rel: 'fancybox', class: 'gallery__item__link'
-        .hide
-          - Painting.where('id NOT IN (?)', arr).each do | p |
+          = link_to image_tag(item.image_url(:full), class: 'img-responsive'), show_all_path(id: item.id), class: 'gallery__item__link', data: { toggle: 'modal', target: '@modal'}
+          / = link_to image_tag(item.image_url(:full), class: 'img-responsive'), item.image_url(:full), role: 'fancybox', rel: '#prev', class: 'gallery__item__link'
+      .hide
+        - item.previews.each do | p |
+          #prev
+            = image_tag(p.asset_url, class: 'prev', role: 'fancyboxThumb')
+      / - Painting.where('id NOT IN (?)', arr).each do | p |
 
-            = link_to image_tag(p.image_url(:thumb), class: 'img-responsive'), p.image_url(:full), role: 'fancyboxThumb', rel: 'fancybox', class: 'gallery__item__link'
+      /   = link_to image_tag(p.image_url(:thumb), class: 'img-responsive'), p.image_url(:full), role: 'fancyboxThumb', rel: 'fancybox', class: 'gallery__item__link'
 
   = render_pagination paintings_collection(gallery)
 

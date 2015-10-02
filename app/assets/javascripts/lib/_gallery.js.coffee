@@ -6,13 +6,15 @@ class Lib.Gallery
 
     @$container.find('@upload').on('click'
       (event) ->
+        $(this).append("<input role='galid' type='hidden' value=#{$(this).parent().find('@galleryItemsList').data('id')} </input>")
+        # @$galId = $(this).parent().find('@galleryItemsList').data('id')
         new Lib.ImageUploader({ multiple: true })
           .on('processDone'
             (files) ->
               for file, index in files
                 data = new FormData()
-
-                data.append('image[gallery_id]', self.getDataId())
+                console.log $(this).parent()
+                data.append('image[gallery_id]', self.$getDataId())
                 # data.append('partial', 'galleries/item')
 
                 if file instanceof Blob
@@ -49,6 +51,7 @@ class Lib.Gallery
   $galleryItemsList: ->
     @$container.find('@galleryItemsList')
 
-  getDataId: ->
-    @$container.find('@galleryItemsList').data('id')
+  $getDataId: ->
+    @$container.find('@galid').val()
+    # @$container.find('@galleryItemsList').data('id')
 
