@@ -5,8 +5,11 @@
     .panel-body
       .btn-group.btn-group-sm
         = link_to "Добавить", new_admin_painting_path(:gallery_id => @gallery), class: 'button btn btn-default'
+        = link_to "Редактировать", edit_admin_gallery_path(@gallery), class: 'button btn btn-default'
+
         = link_to "Удалить",  admin_gallery_path(@gallery), :confirm => 'Are you sure?', :method => :delete, class: 'button btn btn-default'
         = link_to "Вернутся к галереям", admin_galleries_path, class: 'button btn btn-default'
+
 
   - @gallery.paintings.each do |painting|
     .painting

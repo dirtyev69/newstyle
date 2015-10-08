@@ -29,7 +29,7 @@ class Admin::GalleriesController < Admin::BaseController
     @gallery = Gallery.find(params[:id])
     if @gallery.update_attributes(params[:gallery])
       flash[:notice] = "Successfully updated gallery."
-      redirect_to admin_gallery_url
+      redirect_to admin_galleries_url
     else
       render :action => 'edit'
     end

@@ -1,0 +1,13 @@
+- url = url ? url : admin_galleries_path
+- method = method ? method : 'GET'
+
+= simple_form_for @gallery, url: url, method: method do |f|
+  = f.error_messages
+  .row
+    .col-md-4
+      = f.input :name, input_html: {  class: 'form-control' }
+  .row
+    .col-md-4
+      = f.input :show_on_main
+
+  = f.submit 'Сохранить', class: 'btn btn-default'

@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930154145) do
+ActiveRecord::Schema.define(version: 20151008152356) do
 
   create_table "galleries", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "show_on_main", default: false, null: false
   end
 
   create_table "paintings", force: :cascade do |t|

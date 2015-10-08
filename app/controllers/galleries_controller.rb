@@ -3,7 +3,7 @@ class GalleriesController < ApplicationController
   helper_method :paintings_collection, :search, :resource_gallery
 
   def index
-    @galleries = Gallery.all
+    @galleries = Gallery.show_on_main
 
     if request.xhr?
       render :json => {
