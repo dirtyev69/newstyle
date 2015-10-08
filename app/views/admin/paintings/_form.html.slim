@@ -19,7 +19,7 @@
       = p.file_field :asset, name: "painting[privews_attributes][]"
 
   p.well
-    = f.submit
+    = f.submit 'Сохранить', class: 'btn btn-default'
 
 
 - @painting.previews.any?
