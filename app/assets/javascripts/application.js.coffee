@@ -30,6 +30,9 @@ class Style
     new Lib.Gallery(@$container)
     new Lib.Fancybox(@$container)
 
+    # @$container.imagesLoaded ->
+    @$container.find('@masonry').masonry()
+
     new Lib.Pagi(@$container.find('@pagination'))
 
     @$container.find('@fotorama').fotorama
