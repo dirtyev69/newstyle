@@ -27,5 +27,5 @@
   .row
     - @painting.previews.each do |p|
       .col-md-3
-        = image_tag(p.asset, class: 'img-responsive')
-        = link_to "Удалить",  admin_painting_preview_path(@painting, p), :confirm => 'Are you sure?', :method => :delete, class: 'button btn btn-default'
+        = image_tag(p.asset_url(:full), class: 'img-responsive')
+        = link_to "Удалить",  admin_painting_preview_path(@painting, p), data: { :confirm => 'Are you sure?' }, :method => :delete, class: 'button btn btn-default'
