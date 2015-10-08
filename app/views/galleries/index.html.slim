@@ -40,11 +40,11 @@ h1 Каталог обуви
           / = link_to painting_path(item) do
           /   = image_tag item.image_url(:thumb)
           / = link_to image_tag(item.image_url(:full), class: 'img-responsive'), show_all_path(id: item.id), class: 'gallery__item__link', data: { toggle: 'modal', target: '@modal'}
-          = link_to image_tag(item.image_url(:full), class: 'img-responsive'), item.image_url(:full), role: 'fancyboxThumb', class: 'gallery__item__link', data: { thumbnail: "#{item.image_url(:full)}"}
+          = link_to image_tag(item.image_url(:full), class: 'img-responsive'), item.image_url(:full), role: 'fancyboxThumb', class: 'gallery__item__link', rel: "thumb_#{item.id}"
         .hide
           - item.previews.each do | p |
             / = image_tag(p.asset_url, class: 'prev', role: 'fancyboxThumb')
-            = link_to image_tag(p.asset_url, class: 'img-responsive'), p.asset_url, role: 'fancyboxThumb', rel: "thumb_#{item.id}", class: 'gallery__item__link', data: { thumbnail: "#{p.asset_url}"}
+            = link_to image_tag(p.asset_url, class: 'img-responsive'), p.asset_url, role: 'fancyboxThumb', rel: "thumb_#{item.id}", class: 'gallery__item__link'
       / - Painting.where('id NOT IN (?)', arr).each do | p |
 
       /   = link_to image_tag(p.image_url(:thumb), class: 'img-responsive'), p.image_url(:full), role: 'fancyboxThumb', rel: 'fancybox', class: 'gallery__item__link'

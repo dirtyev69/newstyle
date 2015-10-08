@@ -21,8 +21,6 @@ class Lib.Fancybox
         thumbs:
           width: 60
           height: 60
-          source: (current) ->
-            $(current.element).data 'thumbnail'
 
     #     @$container.find('@fancyboxAjax').fancybox
     #       type: 'ajax'
