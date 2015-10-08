@@ -8,16 +8,16 @@
     | Paintings: #{gallery.paintings.size}
 
     @galleryItemsList data-id="#{gallery.id}"
-      -  gallery.paintings.each do |painting|
-        .painting
-          = image_tag painting.image_url(:thumb) if painting.image?
+      .row.form-group
+        -  gallery.paintings.each do |painting|
+          .col-md-4
+            .form-group
+            = link_to edit_admin_painting_path(painting) do
+              = image_tag painting.image_url(:thumb) if painting.image?
+              = painting.name
 
-          .name
-            = painting.name
-          .actions
-            = link_to "edit", edit_admin_painting_path(painting)
-            span |
-            = link_to "remove", admin_painting_path(painting), :confirm => 'Are you sure?', :method => :delete
+            = link_to "удалить", admin_painting_path(painting), data: { :confirm => 'Are you sure?'}, :method => :delete, class: 'badge alert-danger'
+
     .btn.btn-default.btn-fileinput@upload
       | Загрузить фотографии
 

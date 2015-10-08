@@ -1,26 +1,32 @@
 / h1 Редактирование
-= simple_form_for @painting, :url => admin_painting_path(@painting), :html => { :multipart => true } do |f|
-  = f.error_messages
-  = f.hidden_field :gallery_id
-  p
-    = f.label :name
-    = f.input :name, :label => false
-  p
-    = f.label :item_type
-    = f.input :item_type, :label => false
-  p
-    = f.input :image
-  p
-    = f.label :remote_image_url, "or image URL"
-    br
-    = f.input :remote_image_url
-  .form-group
-    = f.fields_for :previews do |p|
-      = p.file_field :asset, name: "painting[privews_attributes][]"
 
-  p.well
-    = f.submit 'Сохранить', class: 'btn btn-default'
+.row
+  .col-md-6
+    = simple_form_for @painting, :url => admin_painting_path(@painting), :html => { :multipart => true } do |f|
+      = f.error_messages
+      = f.hidden_field :gallery_id
+      p
+        = f.label :name
+        = f.input :name, :label => false
+      p
+        = f.label :item_type
+        = f.input :item_type, :label => false
+      p
+        = f.input :image
+      p
+        = f.label :remote_image_url, "or image URL"
+        br
+        = f.input :remote_image_url
+      hr
+      h4 Загрузка превью
+      .form-group
+        = f.fields_for :previews do |p|
+          = p.file_field :asset, name: "painting[privews_attributes][]"
 
+
+      = f.submit 'Сохранить', class: 'btn btn-default'
+  .col-md-4
+    = image_tag(@painting.image_url(:full), class: 'img-responsive')
 
 - @painting.previews.any?
   h3.page-header Previews
