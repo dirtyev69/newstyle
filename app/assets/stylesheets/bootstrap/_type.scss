@@ -63,13 +63,18 @@ p {
   margin-bottom: $line-height-computed;
   font-size: 17px !important;
   font-weight: 300;
-  color: #818888;
+  color: #111;
   @media (min-width: $screen-sm-min) {
     font-size: ($font-size-base * 1.5);
   }
 }
 
-
+ul{
+  padding: 0;
+  li {
+    list-style: none;
+  }
+}
 // Emphasis & misc
 // -------------------------
 
