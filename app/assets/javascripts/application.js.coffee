@@ -29,13 +29,10 @@ class Style
     # new Lib.Up(@$container.find("@up"))
     new Lib.Gallery(@$container)
     new Lib.Fancybox(@$container)
-
-    # @$container.imagesLoaded ->
-    @$container.find('@masonry').masonry()
+    new Lib.Masonry(@$container.find('@masonry'))
 
     new Lib.Pagi(@$container.find('@pagination'))
 
-    @$container.find('@fotorama').fotorama
 
     autosize(@$container.find('@autosize'))
 
