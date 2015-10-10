@@ -5,9 +5,10 @@
     .clearfix
       span.h2= link_to gallery.name, edit_admin_gallery_path(gallery)
       = link_to "Удалить",  admin_gallery_path(gallery), data: { confirm: 'Are you sure?' }, :method => :delete, class: 'button btn btn-default pull-right'
-    | Paintings: #{gallery.paintings.size}
-
-    @galleryItemsList data-id="#{gallery.id}"
+    span.small Моделей: #{gallery.paintings.size}
+    .panel.panel-default
+      .panel-heading= link_to 'Развернуть', "##{gallery.id}", data: { toggle: 'collapse'}
+    .collapse@galleryItemsList data-id="#{gallery.id}" id="#{gallery.id}"
       .row.form-group
         -  gallery.paintings.each do |painting|
           .col-md-4
