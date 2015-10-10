@@ -11,11 +11,10 @@ coffee:
 - seo_keywords 'Галерея Обувь Стиль Тверь, обувной магазин Тверь, стильная обувь,
 качественная обувь Тверь'
 
-h1 Каталог обуви
-/ p.small скидка на всю коллекцию - 20%
+h1.hide Каталог обуви
 
 - for gallery in @galleries
-  h3.gallery__title
+  h2.gallery__title
     = gallery.name
   ul.filter
     li class="#{'active' if search == nil && !params[:all]}"
@@ -30,24 +29,14 @@ h1 Каталог обуви
     /   = link_to 'Все сразу', galleries_path(all: true)
   .row.gallery__list@masonry@paginatable data-id="#{gallery.id}"
     - unless paintings_collection(gallery).present?
-      .well
-        p.lead Извините, товара такого типа пока нет
-    - arr = []
-    -  paintings_collection(gallery).each do |item|
-      - arr.push(item.id)
+      p.lead Извините, товара такого типа пока нет
+    - paintings_collection(gallery).each do |item|
       .col-md-4.col-sm-4.col-xs-6
         .gallery__item
-          / = link_to painting_path(item) do
-          /   = image_tag item.image_url(:thumb)
-          / = link_to image_tag(item.image_url(:full), class: 'img-responsive'), show_all_path(id: item.id), class: 'gallery__item__link', data: { toggle: 'modal', target: '@modal'}
           = link_to image_tag(item.image_url(:full), class: 'img-responsive'), item.image_url(:full), role: 'fancyboxThumb', class: 'gallery__item__link', rel: "thumb_#{item.id}"
         .hide
           - item.previews.each do | p |
-            / = image_tag(p.asset_url, class: 'prev', role: 'fancyboxThumb')
             = link_to image_tag(p.asset_url(:full), class: 'img-responsive'), p.asset_url(:full), role: 'fancyboxThumb', rel: "thumb_#{item.id}", class: 'gallery__item__link'
-      / - Painting.where('id NOT IN (?)', arr).each do | p |
-
-      /   = link_to image_tag(p.image_url(:thumb), class: 'img-responsive'), p.image_url(:full), role: 'fancyboxThumb', rel: 'fancybox', class: 'gallery__item__link'
 
   = render_pagination paintings_collection(gallery)
 

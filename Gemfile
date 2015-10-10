@@ -7,23 +7,15 @@ gem 'authlogic'
 
 gem 'rails', '4.2.0'
 
-gem 'sqlite3'
-
-# Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
 
 gem 'breadcrumbs_on_rails'
 
-
-
 gem "carrierwave"
 gem 'coffee-rails'
-
-gem 'sass-rails', '5.0.1'
 gem 'compass', '1.0.3'
 gem 'compass-rails', '2.0.4'
-gem  'chunky_png', '1.3.4'
+gem 'chunky_png', '1.3.4'
 
 gem 'daemons'
 
@@ -40,16 +32,16 @@ gem 'kaminari'
 gem 'rmagick'
 gem 'russian'
 
-gem 'sdoc', '~> 0.4.0', group: :doc
-
 gem 'pg'
 gem 'protected_attributes'
 
 gem 'slim'
-
 gem 'simple_form'
 gem 'skim'
 gem 'scrypt'
+gem 'sass-rails', '5.0.1'
+gem 'sqlite3'
+gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'unicorn'
 
