@@ -8,7 +8,7 @@
     span.small Моделей: #{gallery.paintings.size}
     .panel.panel-default
       .panel-heading= link_to 'Развернуть', "##{gallery.id}", data: { toggle: 'collapse'}
-    .collapse@galleryItemsList data-id="#{gallery.id}" id="#{gallery.id}"
+    .collapse@galleryItemsList data-id="#{gallery.id}" id="#{gallery.id}" class="#{'in' if gallery.show_on_main.to_s == 'true' }"
       .row.form-group
         -  gallery.paintings.each do |painting|
           .col-md-4
