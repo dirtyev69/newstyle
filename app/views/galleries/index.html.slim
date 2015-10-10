@@ -16,28 +16,27 @@ h1.hide Каталог обуви
 - for gallery in @galleries
   h2.gallery__title
     = gallery.name
-
   ul.filter
-    - types = paintings_collection(gallery).pluck(:item_type).uniq
+    - types = Gallery.find(gallery.id).paintings.pluck(:item_type).uniq
     - if types.include?(nil)
       li class="#{'active' if search == nil && !params[:all]}"
         = link_to 'Все', galleries_path(type: nil)
-    - elsif types.include?(1)
+    - if types.include?(1)
       li class="#{'active' if search.to_i == 1}"
         = link_to 'Туфли', galleries_path(type: 1)
-    - elsif types.include?(2)
+    - if types.include?(2)
       li class="#{'active' if search.to_i == 2}"
         = link_to 'Босоножки', galleries_path(type: 2)
-    - elsif types.include?(3)
+    - if types.include?(3)
       li class="#{'active' if search.to_i == 3}"
         = link_to 'Шлепанцы', galleries_path(type: 3)
-    - elsif types.include?(4)
+    - if types.include?(4)
       li class="#{'active' if search.to_i == 4}"
         = link_to 'Сапоги', galleries_path(type: 4)
-    - elsif types.include?(5)
+    - if types.include?(5)
       li class="#{'active' if search.to_i == 5}"
         = link_to 'Полусапожки', galleries_path(type: 5)
-    - elsif types.include?(6)
+    - if types.include?(6)
       li class="#{'active' if search.to_i == 6}"
         = link_to 'Ботильоны', galleries_path(type: 6)
     / li
