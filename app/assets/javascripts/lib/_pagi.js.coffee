@@ -39,7 +39,6 @@ class Lib.Pagi
               self.$container.html(json.pagination)
               $html.animate({ opacity: 1 })
 
-              # $list.append($html)
               $list.masonry('appended', $html, true)
           )
       )
