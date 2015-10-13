@@ -1,4 +1,4 @@
 - articles.each do |article|
   .col-md-4.col-sm-4.col-xs-6
     .gallery__item
-      = link_to image_tag(article.image_url(:full), class: 'img-responsive'), article.image_url(:full), role: 'fancyboxThumb', rel: 'fancybox', class: 'gallery__item__link'
+      = link_to image_tag(article.image_url(:full), class: 'img-responsive'), article.image_url(:full), role: 'fancyboxThumb', rel:  "thumb_#{article.id}", class: 'gallery__item__link'
