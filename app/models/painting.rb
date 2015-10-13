@@ -1,6 +1,5 @@
 class Painting < ActiveRecord::Base
-  paginates_per 30
-
+  paginates_per 2
   attr_accessible :gallery_id, :name, :image, :remote_image_url, :item_type, :privews_attributes
   belongs_to :gallery
   has_many :previews
