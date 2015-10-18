@@ -42,6 +42,9 @@ h1.hide Каталог обуви
     - if types.include?(7)
       li class="#{'active' if search.to_i == 7}"
         = link_to 'Ботинки', galleries_path(type: 7)
+    - if types.include?(8)
+      li class="#{'active' if search.to_i == 8}"
+        = link_to 'Сумки', galleries_path(type: 8)
     / li
     /   = link_to 'Все сразу', galleries_path(all: true)
   .row.gallery__list@masonry@paginatable data-id="#{gallery.id}"
