@@ -1,4 +1,4 @@
-class GalleriesController < ApplicationController
+class CatalogController < ApplicationController
 
   helper_method :paintings_collection, :search, :resource_gallery
 
@@ -7,7 +7,7 @@ class GalleriesController < ApplicationController
 
     if request.xhr?
       render :json => {
-        :data => render_to_string(:partial => 'galleries/shared/tiles', :locals => { :articles => paintings_collection(resource_gallery) }),
+        :data => render_to_string(:partial => 'catalog/shared/tiles', :locals => { :articles => paintings_collection(resource_gallery) }),
         :pagination => view_context.render_pagination(paintings_collection(resource_gallery))}
       return
     end

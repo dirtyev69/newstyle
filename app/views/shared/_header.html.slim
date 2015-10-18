@@ -6,8 +6,8 @@
     = link_to fa_icon('bars'), 'javascript:void(0)', :onclick => "$('@menu').toggleClass('nav-main-opened');", class: 'nav-main__btn'
 
     ul.nav-main@menu
-      li class="#{controller_name == 'galleries' && 'active'}"
-        = link_to 'Каталог обуви', galleries_path
+      li class="#{controller_name == 'catalog' && 'active'}"
+        = link_to 'Каталог обуви', catalog_index_path
       li class="#{controller_name == 'pages' && action_name == 'contacts' && 'active'}"
         = link_to 'Контакты', contacts_path
       li class="#{controller_name == 'pages' && action_name == 'about' && 'active'}"

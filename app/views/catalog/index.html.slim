@@ -4,12 +4,12 @@ coffee:
     new Lib.Up($container.find('@up'))
 
 
-- seo_title 'Каталог обуви'
+- seo_title 'каталог обуви'
 
-- seo_description 'Обувь Стиль, магазин. Обувной магазин женской обуви в городе Тверь, Каталог обуви Тверь'
+- seo_description 'каталог женской обуви магазин стиль тверь 2015'
 
-- seo_keywords 'Галерея Обувь Стиль Тверь, обувной магазин Тверь, стильная обувь,
-качественная обувь Тверь'
+- seo_keywords 'каталог обуви, женская обувь, магазин обуви, тверь, обувь 2015, туфли, cапоги, полусапожки, ботильоны, ботинки, сумки'
+
 
 h1.hide Каталог обуви
 
@@ -20,31 +20,31 @@ h1.hide Каталог обуви
     - types = Gallery.find(gallery.id).paintings.pluck(:item_type).uniq
     - if types.include?(nil)
       li class="#{'active' if search == nil && !params[:all]}"
-        = link_to 'Все', galleries_path(type: nil)
+        = link_to 'Все', catalog_index_path(type: nil)
     - if types.include?(1)
       li class="#{'active' if search.to_i == 1}"
-        = link_to 'Туфли', galleries_path(type: 1)
+        = link_to 'Туфли', catalog_index_path(type: 1)
     - if types.include?(2)
       li class="#{'active' if search.to_i == 2}"
-        = link_to 'Босоножки', galleries_path(type: 2)
+        = link_to 'Босоножки', catalog_index_path(type: 2)
     - if types.include?(3)
       li class="#{'active' if search.to_i == 3}"
-        = link_to 'Шлепанцы', galleries_path(type: 3)
+        = link_to 'Шлепанцы', catalog_index_path(type: 3)
     - if types.include?(4)
       li class="#{'active' if search.to_i == 4}"
-        = link_to 'Сапоги', galleries_path(type: 4)
+        = link_to 'Сапоги', catalog_index_path(type: 4)
     - if types.include?(5)
       li class="#{'active' if search.to_i == 5}"
-        = link_to 'Полусапожки', galleries_path(type: 5)
+        = link_to 'Полусапожки', catalog_index_path(type: 5)
     - if types.include?(6)
       li class="#{'active' if search.to_i == 6}"
-        = link_to 'Ботильоны', galleries_path(type: 6)
+        = link_to 'Ботильоны', catalog_index_path(type: 6)
     - if types.include?(7)
       li class="#{'active' if search.to_i == 7}"
-        = link_to 'Ботинки', galleries_path(type: 7)
+        = link_to 'Ботинки', catalog_index_path(type: 7)
     - if types.include?(8)
       li class="#{'active' if search.to_i == 8}"
-        = link_to 'Сумки', galleries_path(type: 8)
+        = link_to 'Сумки', catalog_index_path(type: 8)
     / li
     /   = link_to 'Все сразу', galleries_path(all: true)
   .row.gallery__list@masonry@paginatable data-id="#{gallery.id}"

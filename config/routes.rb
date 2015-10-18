@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 root :to => "pages#index"
-resources :galleries, :only => [:index]
+resources :catalog, :only => [:index]
 resources :paintings
 get 'show_all' => 'paintings#show_all'
 
