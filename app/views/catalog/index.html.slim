@@ -4,7 +4,7 @@ coffee:
     new Lib.Up($container.find('@up'))
 
 
-- seo_title 'каталог обуви'
+- seo_title 'Каталог обуви'
 
 - seo_description 'каталог женской обуви магазин стиль тверь 2015'
 
@@ -18,9 +18,8 @@ h1.hide Каталог обуви
     = gallery.name
   ul.filter
     - types = Gallery.find(gallery.id).paintings.pluck(:item_type).uniq
-    - if types.include?(nil)
-      li class="#{'active' if search == nil && !params[:all]}"
-        = link_to 'Все', catalog_index_path(type: nil)
+    li class="#{'active' if search == nil && !params[:all]}"
+      = link_to 'Все', catalog_index_path(type: nil)
     - if types.include?(1)
       li class="#{'active' if search.to_i == 1}"
         = link_to 'Туфли', catalog_index_path(type: 1)
