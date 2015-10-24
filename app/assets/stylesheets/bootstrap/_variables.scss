@@ -1,4 +1,16 @@
 $bootstrap-sass-asset-helper: false !default;
+
+
+@font-face {
+  font-family: 'HelveticaNeueUltraLight';
+  src: url(font-path('HelveticaNeueCyr-UltraLight.otf'));
+}
+
+@font-face {
+  font-family: 'HelveticaNeueLight';
+  src: url(font-path('HelveticaNeueCyr-Light.otf'));
+}
+
 //
 // Variables
 // --------------------------------------------------
@@ -43,7 +55,9 @@ $link-hover-decoration: underline !default;
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif-light: "HelveticaNeueUltraLight", Helvetica, Arial, sans-serif;
+
+$font-family-sans-serif:  "HelveticaNeueLight", Helvetica, Arial, sans-serif !default;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
