@@ -3,7 +3,6 @@ coffee:
     $container = $(document)
     new Lib.Up($container.find('@up'))
 
-
 - seo_title 'Каталог обуви'
 
 - seo_description 'каталог женской обуви магазин стиль тверь 2015'
@@ -46,18 +45,18 @@ h1.hide Каталог обуви
         = link_to 'Сумки', catalog_index_path(type: 8)
     / li
     /   = link_to 'Все сразу', galleries_path(all: true)
-  .row.gallery__list@masonry@paginatable data-id="#{gallery.id}"
+  .gallery__list@masonry@paginatable data-id="#{gallery.id}"
     - unless paintings_collection(gallery).present?
       p.lead Извините, товара такого типа пока нет
     - paintings_collection(gallery).each do |item|
       .col-md-4.col-sm-4.col-xs-6
         .gallery__item
-          = link_to image_tag(item.image_url(:full), class: 'img-responsive'), item.image_url(:full), role: 'fancyboxThumb', class: 'gallery__item__link', rel: "thumb_#{item.id}"
-        .hide
-          - item.previews.each do | p |
-            = link_to image_tag(p.asset_url(:full), class: 'img-responsive'), p.asset_url(:full), role: 'fancyboxThumb', rel: "thumb_#{item.id}", class: 'gallery__item__link'
+          = link_to image_tag(item.image_url(:full), class: 'img-responsive'), get_previews_path(item), class: 'gallery__item__link', data: { toggle: 'modal', target: '@modal' }
+
+
 
   = render_pagination paintings_collection(gallery)
+
 
 
 

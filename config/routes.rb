@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
 root :to => "pages#index"
 resources :catalog, :only => [:index]
+
 resources :paintings
+
+get '/catalog/:painting_id/get_previews' => 'catalog#get_previews', :as => 'get_previews'
+
 get 'show_all' => 'paintings#show_all'
 
 match 'contacts' => 'pages#contacts', :via => :get

@@ -1,0 +1,3 @@
+.hide
+  - item.previews.each do | p |
+    = link_to image_tag(p.asset_url(:full), class: 'img-responsive'), p.asset_url(:full), role: 'fancyboxThumb', rel: "thumb_#{item.id}", class: 'gallery__item__link'

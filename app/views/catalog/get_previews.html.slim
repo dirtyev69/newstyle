@@ -1,0 +1,23 @@
+coffee:
+  $('@modal').on 'loaded.bs.modal', ->
+    new Pages.Previews($(document).find('@previews'))
+
+.modal-body@previews
+
+  div type="button" class="modal-close" data-dismiss="modal"
+
+  / = image_tag(resource_painting.image_url(:full), class: 'img-responsive')
+  / .row
+  /   - resource_painting.previews.each do |item|
+  /     .col-md-3
+  /       = link_to image_tag(item.asset_url, class: 'img-responsive'), item.asset_url, role: 'fancyboxThumb', rel: 'fancybox'
+  ul.lightSlider
+    li data-thumb="#{resource_painting.image_url(:full)}"
+      = image_tag(resource_painting.image_url(:full), class: 'img-responsive')
+    - resource_painting.previews.each do |p|
+      - 4.times
+        li data-thumb="#{p.asset_url}"
+          = image_tag(p.asset_url(:full), class: 'img-responsive')
+
+
+

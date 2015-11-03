@@ -1,6 +1,6 @@
 class CatalogController < ApplicationController
 
-  helper_method :paintings_collection, :search, :resource_gallery
+  helper_method :paintings_collection, :search, :resource_gallery, :resource_painting
 
   def index
     @galleries = Gallery.show_on_main
@@ -13,7 +13,22 @@ class CatalogController < ApplicationController
     end
   end
 
+
+  def get_previews
+    render :layout => false
+    # if request.xhr?
+    #   render :json => {
+    #     :data => render_to_string(:partial => 'catalog/shared/previews', :locals => { :item => Painting.find(params[:painting_id]) })
+    #     }
+    #   return
+    # end
+  end
+
 protected
+
+  def resource_painting
+    @painting = Painting.find(params[:painting_id])
+  end
 
   def search
     params[:type] ? params[:type] : nil

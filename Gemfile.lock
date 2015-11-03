@@ -177,6 +177,7 @@ GEM
     rails-assets-jquery (2.1.4)
     rails-assets-jquery-autosize (3.0.8)
     rails-assets-jquery.lazyload (1.9.5)
+    rails-assets-lightslider (1.1.5)
     rails-assets-masonry (3.3.2)
       rails-assets-fizzy-ui-utils (~> 1.0.1)
       rails-assets-get-size (~> 1.2.2)
@@ -311,6 +312,7 @@ DEPENDENCIES
   rails-assets-imagesloaded
   rails-assets-jquery-autosize
   rails-assets-jquery.lazyload
+  rails-assets-lightslider
   rails-assets-masonry
   rails-assets-nprogress
   rails-assets-underscore
@@ -332,3 +334,6 @@ DEPENDENCIES
   unicorn
   whenever
   yui-compressor
+
+BUNDLED WITH
+   1.10.6

@@ -4,6 +4,7 @@
 #= require role
 #= require fotorama
 #= require bootstrap-sass
+
 #= require nprogress/nprogress.js
 #= require imagesloaded/imagesloaded.pkgd
 #= require masonry/dist/masonry.pkgd
@@ -14,9 +15,11 @@
 #= require underscore/underscore.js
 #= require js-routes
 #= require underscore.string/underscore.string.js
+#= require lightslider
 #= require jquery-autosize
 #= require_tree ./ext
 #= require_tree ./lib
+#= require_tree ./pages
 #= require_tree ./templates
 
 $(document).ready ->
@@ -39,3 +42,4 @@ class Style
     @$container.find('@modal').on 'hidden.bs.modal', ->
       $(this).removeData('bs.modal')
       $(this).find('@modalContent').empty()
+
