@@ -9,9 +9,8 @@ coffee:
     li data-thumb="#{resource_painting.image_url(:full)}"
       = image_tag(resource_painting.image_url(:full), class: 'img-responsive')
     - resource_painting.previews.each do |p|
-      - 4.times
-        li data-thumb="#{p.asset_url}"
-          = image_tag(p.asset_url(:full), class: 'img-responsive')
+      li data-thumb="#{p.asset_url}"
+        = image_tag(p.asset_url(:full), class: 'img-responsive')
 
 
 
