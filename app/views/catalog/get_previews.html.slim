@@ -10,7 +10,7 @@ coffee:
       = image_tag(resource_painting.image_url(:full), class: 'img-responsive')
     - resource_painting.previews.each do |p|
       li data-thumb="#{p.asset_url}"
-        = image_tag(p.asset_url(:full), class: 'img-responsive')
+        = image_tag(p.asset_url(:thumb), class: 'img-responsive')
 
 
 
