@@ -31,7 +31,7 @@ class Style
 
     # new Lib.Up(@$container.find("@up"))
     new Lib.Gallery(@$container)
-    new Lib.Fancybox(@$container)
+
     new Lib.Masonry(@$container.find('@masonry'))
 
     new Lib.Pagi(@$container.find('@pagination'))
@@ -42,4 +42,5 @@ class Style
     @$container.find('@modal').on 'hidden.bs.modal', ->
       $(this).removeData('bs.modal')
       $(this).find('@modalContent').empty()
+
 
