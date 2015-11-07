@@ -1,37 +1,41 @@
 .main_header
-  background: #fdfdfd none repeat scroll 0 0
-  padding-top: 10px
+  background: #fff
+  padding-top: 20px
   position: fixed
-  height: 80px
+  height: 110px
   width: 100%
   z-index: 500
-  border-bottom: 1px solid #ddd
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+  max-width: 959px
+  margin: 0 auto
+  left: 0
+  right: 0
+  border-bottom: 1px solid #000
   @media (max-width: $screen-sm)
-    height: 70px
+    height: 100px
 
 .main_header-fixed
   position: relative
   top: 0
   left: 0
 
+
 .main_header__logo
   display: inline-block
   vertical-align: top
-  width: 120px
-  height: 46px
+  width: 170px
+  height: 58px
   float: left
   text-indent: -9999999px
-  background: asset-data-url('logo.png') 0 0 / cover no-repeat
+  background: image-url('logo2.png') 0 0 / cover no-repeat
   @media (max-width: 992px)
     margin-left: 10px
 
 .nav-main
-  float: right
-  margin: 20px 0 0 0
+  float: left
+  margin: 40px 70px 0
   padding: 0 0 10px 0
-  opacity: 0.9
   @media (max-width: $screen-sm)
+    margin: 0
     display: none
     background: #fff
   li
@@ -43,39 +47,46 @@
       width: 100%
     &.active
       a
-        color: #b8bfbf
+        span
+          border-bottom: 1px solid #000
     a
       padding: 22px 10px 5px
-      color: #717c7e
-      font-size: 14px
+      color: #333
+      font-size: 13px
+      line-height: 20px
       text-transform: uppercase
       @media (max-width: $screen-sm)
         display: block
         padding: 15px 0 15px 25px
       &:hover, &:active, &:focus
         text-decoration: none
+        span
+          border-bottom: 1px solid #000
       &:focus
         outline: none
-      &:hover
-        color: #b8bfbf
+      span
+        height: 20px
+        line-height: 20px
 
 .nav-main-opened
   position: absolute
   left: 0
-  top: 40px
+  top: 80px
   right: 0
+  padding: 15px 0 30px 0
   display: block
   @media (min-width: $screen-sm)
     position: static
+    padding: 0
 
 .nav-main__btn
   display: none
   float: right
-  margin: 5px 0 0 0
-  color: #717c7e
+  margin: 25px 0 0 0
+  color: #333
   font-size: 30px
   &:active,&:hover, &:focus
-    color: #717c7e
+    color: #333
   @media (max-width: $screen-sm)
     display: block
 

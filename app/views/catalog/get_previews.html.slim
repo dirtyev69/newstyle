@@ -2,15 +2,14 @@ coffee:
   $('@modal').on 'loaded.bs.modal', ->
     new Pages.Previews($(document).find('@previews'))
 
+
 .modal-body@previews
   div type="button" class="modal-close" data-dismiss="modal"
 
-  ul@lightSlider
-    li data-thumb="#{resource_painting.image_url(:full)}"
-      = image_tag(resource_painting.image_url(:full), class: 'img-responsive')
+  .container.hide
+    = link_to image_tag(resource_painting.image_url(:full), class: 'img-responsive'), resource_painting.image_url(:full), role: 'fancyboxThumb', rel: "thumb_#{resource_painting.id}"
     - resource_painting.previews.each do |p|
-      li data-thumb="#{p.asset_url}"
-        = image_tag(p.asset_url(:full), class: 'img-responsive')
+      = link_to image_tag(p.asset_url(:full), class: 'img-responsive'), p.asset_url(:full), role: 'fancyboxThumb', rel: "thumb_#{resource_painting.id}"
 
 
 

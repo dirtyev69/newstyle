@@ -4,24 +4,20 @@ class Pages.Previews
   constructor: (@$container) ->
     self = this
 
-    @$container.find("@lightSlider").lightSlider
-      gallery: true
-      item: 1
+
+    @$container.find('@fancyboxThumb').fancybox
       loop: true
-      slideMargin: 0
-      thumbItem: 9
-      adaptiveHeight: true
-      enableDrag: false
-      keyPress: true
-      responsive: [
-        {
-          breakpoint: 480
-          settings:
-            gallery: true
-            thumbItem: 6
-        }
-      ]
+      prevEffect  : 'none'
+      nextEffect  : 'none'
+      padding: 0
+      closeBtn: false
+      helpers:
+        overlay : null
+        thumbs:
+          width: 60
+          height: 60
+
+    @$container.find('@fancyboxThumb:first').click()
 
 
-    $slider = @$container.find("@lightSlider").lightSlider
-    $slider.destroy()
+

@@ -15,7 +15,6 @@
 #= require underscore/underscore.js
 #= require js-routes
 #= require underscore.string/underscore.string.js
-#= require lightslider
 #= require jquery-autosize
 #= require_tree ./ext
 #= require_tree ./lib
@@ -42,5 +41,6 @@ class Style
     @$container.find('@modal').on 'hidden.bs.modal', ->
       $(this).removeData('bs.modal')
       $(this).find('@modalContent').empty()
+      $.fancybox.close()
 
 

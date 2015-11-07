@@ -74,8 +74,6 @@ gem 'role-rails'
 
 gem 'rails-assets-bootstrap-sass'
 
-gem 'rails-assets-lightslider'
-
 gem 'rails-assets-imagesloaded'
 gem 'rails-assets-masonry'
 gem 'rails-assets-jquery.lazyload'
