@@ -1,0 +1,40 @@
+#fancybox-thumbs
+  text-align: center
+  ul
+    display: inline-block
+    left: auto !important
+    width: auto !important
+
+.fancybox-nav
+  display: block
+  height: auto
+  top: 50%
+  &:hover
+    span
+      opacity: 1
+  span
+    display: block
+    margin: 0
+    visibility: visible
+    margin-top: -37px
+    height: 74px
+    width: 54px
+    opacity: 0.8
+    transition: opacity .2s cubic-bezier(.33,0,.2,1)
+    background-image: image-url('sprite.svg')
+    background-position: -13px -114px !important
+    background-repeat: no-repeat
+    background-size: auto auto
+
+.fancybox-prev
+  span
+    left: -60px
+    @media (max-width: $screen-xs-min)
+      left: 0
+
+.fancybox-next
+  span
+    +rotate(180deg)
+    right: -60px
+    @media (max-width: $screen-xs-min)
+      right: 0
