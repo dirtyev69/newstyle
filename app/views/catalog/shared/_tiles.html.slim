@@ -2,3 +2,8 @@
   .col-md-4.col-sm-4.col-xs-6
     .gallery__item
       = link_to image_tag(article.image_url(:full), class: 'img-responsive'), get_previews_path(article), class: 'gallery__item__link', data: { toggle: 'modal', target: '@modal' }
+      - if article.price != 0
+        strong.gallery__item__price
+          => article.price
+          '
+          | руб.
