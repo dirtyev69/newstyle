@@ -2,6 +2,12 @@ $bootstrap-sass-asset-helper: false !default;
 
 
 @font-face {
+  font-family: 'Marianna';
+  src: url(font-path('Marianna.ttf'));
+}
+
+
+@font-face {
   font-family: 'HelveticaNeueUltraLight';
   src: url(font-path('HelveticaNeueCyr-UltraLight.otf'));
 }
@@ -62,6 +68,9 @@ $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base:        $font-family-sans-serif !default;
+
+$font-family-marianna: "Marianna", $font-family-serif;
+
 
 $font-size-base:          14px !default;
 $font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
