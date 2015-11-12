@@ -52,8 +52,10 @@ h1.hide Каталог обуви
       .col-md-4.col-sm-4.col-xs-6
         .gallery__item
           = link_to image_tag(item.image_url(:full), class: 'img-responsive'), get_previews_path(item), class: 'gallery__item__link', data: { toggle: 'modal', target: '@modal' }
-
-
+          - if item.price != 0
+            strong.gallery__item__price
+              = item.price
+              ' руб.
 
   = render_pagination paintings_collection(gallery)
 
