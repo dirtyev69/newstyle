@@ -15,13 +15,24 @@
     font-size: 24px
 
 .gallery__item
+  position: relative
   margin: 0 0 40px 0
   transition: opacity .2s
   &:hover
     opacity: 0.85
 
 .gallery__item__link
+  position: relative
   display: block
+
+.gallery__item__link-pseudo
+  display: block
+  position: absolute
+  top: 0
+  left: 0
+  height: 100%
+  width: 100%
+  z-index: 11
 
 .gallery__item__price
   display: block

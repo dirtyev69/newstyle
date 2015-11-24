@@ -4,7 +4,7 @@ class Admin::ImagesController < Admin::BaseController
     resource_image.save
     respond_to do |format|
       format.html do
-        render :partial => 'galleries/item', :locals => { :painting => resource_image }
+        render :partial => 'catalog/item', :locals => { :painting => resource_image }
       end
     end
   end

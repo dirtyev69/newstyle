@@ -28,6 +28,8 @@ class Style
   constructor: (@$container) ->
     self = this
 
+    @$preloader = @$container.find('@preloader')
+
     # new Lib.Up(@$container.find("@up"))
     new Lib.Gallery(@$container)
 
