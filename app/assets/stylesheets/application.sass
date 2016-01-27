@@ -17,6 +17,17 @@
 @import "partials/*"
 
 
+=better-fonts()
+  text-rendering: optimizeLegibility
+  font-feature-settings: "kern"
+  font-kerning: normal
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+
+body
+  +better-fonts
+
 .preloader
   position: absolute
   left: 50%

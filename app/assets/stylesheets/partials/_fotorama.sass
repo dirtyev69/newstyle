@@ -2,3 +2,27 @@
   margin: 0
   .fotorama__arr
     display: none !important
+
+
+.fotorama__link, .fotorama__link-bottom
+  display: block
+  position: absolute
+  top: 20%
+  left: 0
+  right: 0
+  margin: 0 auto
+  color: #fff
+  text-align: center
+  font-style: italic
+  font-size: 50px
+  &:active,&:hover, &:focus
+    color: #fff
+  @media (max-width: $screen-md-min)
+    font-size: 40px
+  @media (max-width: $screen-sm-min)
+    font-size: 30px
+  @media (max-width: $screen-sm-min)
+    font-size: 20px
+
+.fotorama__link-bottom
+  top: 30%
