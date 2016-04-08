@@ -20,6 +20,8 @@ namespace 'admin' do
     resources :previews
   end
 
+  resource :delivery, :only => [:new, :create]
+
   resources :images, :only => [:create, :update, :destroy]
 
   namespace 'auth' do

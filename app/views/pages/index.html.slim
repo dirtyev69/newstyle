@@ -8,12 +8,19 @@
   /   | Мы специализируемся на женской обуви и соотрудничаем с такими известными торговыми марками как: Hispanitas, Pikolinas, Beautifeel, Hogl и другими.
 / .sale.well.well-small
 /   = image_tag('sale.jpg', alt: 'сезонная распродажа', class: 'img-responsive')
-.fotorama@fotorama  data-width="100%" data-height='auto' data-autoplay="true" data-fit="cover" data-nav="false" data-arrow='false' data-transition='crossfade'
-  = image_tag('hs.jpg', alt: 'Hispanitas')
-  = image_tag('waldlaufer.jpg', alt: 'Waldlaufer')
-  = image_tag('dakkem.jpg', alt: 'Dakkem')
-  = image_tag('BeautiFeel2.jpg', alt: 'Beautifeel')
+/ .fotorama@fotorama  data-width="100%" data-height='auto' data-autoplay="true" data-fit="cover" data-nav="false" data-arrow='false' data-transition='crossfade'
 
+= content_for (:test)
+  @imageGrid
+    = image_tag('waldlaufer.jpg', alt: 'Waldlaufer')
+    = image_tag('2016.jpg', alt: 'Spring Summer 2016')
+    / = image_tag('dakkem.jpg', alt: 'Dakkem')
+    / = image_tag('2016.jpg', alt: 'Spring Summer 2016')
+    = image_tag('BeautiFeel2.jpg', alt: 'Beautifeel')
+    / = image_tag('sale.jpg', alt: 'сезонная распродажа')
+    = image_tag('Beautifeel.jpg', alt: 'BeautiFeel')
+    = image_tag('Hogl-main_01.jpg', alt: 'BeautiFeel')
+    / = link_to image_tag('hs.jpg', alt: 'Hispanitas'), '#'
 / noindex
 /   = link_to 'Перейти на Каталог Обуви 2016', catalog_index_path, class: 'fotorama__link'
 /   = link_to 'Получить Скидку 5%', 'https://vk.com/shoes_style_tver', target: '_blank', class: 'fotorama__link fotorama__link-bottom'

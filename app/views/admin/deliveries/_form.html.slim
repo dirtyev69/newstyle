@@ -1,0 +1,13 @@
+- url = url ? url : new_admin_delivery_path
+- method = method ? method : 'GET'
+
+= simple_form_for @delivery, url: url, method: method do |f|
+  = f.error_messages
+  .row
+    .col-md-4
+      = f.input :email, input_html: {  class: 'form-control' }
+  .row
+    .col-md-4.form-group
+      = f.input :text, input_html: {  class: 'form-control' }
+
+  = f.submit 'Отправить', class: 'btn btn-default'

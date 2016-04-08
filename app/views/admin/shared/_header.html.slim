@@ -7,4 +7,6 @@
             = link_to admin_path(), :class => 'navbar-brand' do
               = fa_icon "tachometer"
           li{ class="#{'active' if params[:controller] =~ /admin\/galleries/ }" }
-              = link_to 'Галлереи', admin_galleries_path
+            = link_to 'Галлереи', admin_galleries_path
+          li{ class="#{'active' if params[:controller] =~ /admin\/delivery/ }" }
+            = link_to 'Рассылка',  new_admin_delivery_path

@@ -33,10 +33,17 @@ class Style
     # new Lib.Up(@$container.find("@up"))
     new Lib.Gallery(@$container)
 
+    # new Lib.ImageGrid(@$container)
+
     new Lib.Masonry(@$container.find('@masonry'))
 
     new Lib.Pagi(@$container.find('@pagination'))
 
+    $('@imageGrid').imageGrid({
+      rowCount: 3,
+      grid: 0,
+      rowHeight: 150
+    });
 
     autosize(@$container.find('@autosize'))
 
