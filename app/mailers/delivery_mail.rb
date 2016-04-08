@@ -7,6 +7,6 @@ class DeliveryMail < ApplicationMailer
   #
   def send_mail(delivery)
     @delivery = delivery
-    mail to: @delivery.email, subject: "Магазин женской обуви Стиль"
+    mail from: 'shoes.style69@gmail.com', to: @delivery.email, subject: "Магазин женской обуви Стиль"
   end
 end

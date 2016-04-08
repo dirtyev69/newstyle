@@ -11,6 +11,9 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'breadcrumbs_on_rails'
 
+
+gem 'mailgun_rails'
+
 gem "carrierwave"
 gem 'coffee-rails'
 gem 'compass', '1.0.3'

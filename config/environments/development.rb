@@ -42,21 +42,27 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
-  config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.raise_delivery_errors = true
 
-  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.smtp_settings = {
-    address: "smtp.mailgun.org",
-    port: 587,
-    domain: "sandboxaad8223281b447c1b3b234da95b4fff9.mailgun.org",
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: "postmaster@sandboxaad8223281b447c1b3b234da95b4fff9.mailgun.org",
-    password: "9616c3993ca5a03b1ff290453ccb032b"
+  # config.action_mailer.smtp_settings = {
+  #   address: "smtp.mailgun.org",
+  #   port: 587,
+  #   domain: "sandboxaad8223281b447c1b3b234da95b4fff9.mailgun.org",
+  #   authentication: "plain",
+  #   enable_starttls_auto: true,
+  #   user_name: "postmaster@sandboxaad8223281b447c1b3b234da95b4fff9.mailgun.org",
+  #   password: "9616c3993ca5a03b1ff290453ccb032b"
+  # }
+
+  # config.action_mailer.default_url_options = { host: "127.0.0.1" }
+
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+      api_key: 'key-a3124a8490a81ebf6f35fb101b661e75',
+      domain: 'sandboxaad8223281b447c1b3b234da95b4fff9.mailgun.org'
   }
-
-  config.action_mailer.default_url_options = { host: "127.0.0.1" }
 
 
   # Raises error for missing translations

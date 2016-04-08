@@ -87,19 +87,25 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
 
-  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: "5.101.99.155",
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: "jekaantipin69@gmail.com",
-    password: "irbis551013"
+  # config.action_mailer.smtp_settings = {
+  #   address: "smtp.gmail.com",
+  #   port: 587,
+  #   domain: "5.101.99.155",
+  #   authentication: "plain",
+  #   enable_starttls_auto: true,
+  #   user_name: "jekaantipin69@gmail.com",
+  #   password: "irbis551013"
+  # }
+
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+      api_key: 'key-a3124a8490a81ebf6f35fb101b661e75',
+      domain: 'sandboxaad8223281b447c1b3b234da95b4fff9.mailgun.org'
   }
 
-  config.action_mailer.default_url_options = { host: "5.101.99.155" }
+  # config.action_mailer.default_url_options = { host: "5.101.99.155" }
 
 
 end
