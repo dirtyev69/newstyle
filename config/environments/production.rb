@@ -92,15 +92,14 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
-    domain: "shoes-style69.ru",
+    domain: "5.101.99.155",
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: "jekaantipin69@gmail.com",
     password: "irbis551013"
   }
 
-  config.action_mailer.default_url_options = { host: "shoes-style69.ru" }
-
+  config.action_mailer.default_url_options = { host: "5.101.99.155" }
 
 
 end
