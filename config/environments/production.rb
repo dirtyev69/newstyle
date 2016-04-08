@@ -89,23 +89,14 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
-  # config.action_mailer.smtp_settings = {
-  #   address: "smtp.gmail.com",
-  #   port: 587,
-  #   domain: "shoes-style69.ru",
-  #   authentication: "plain",
-  #   enable_starttls_auto: true,
-  #   user_name: "jekaantipin69@gmail.com",
-  #   password: "irbis551013"
-  # }
   config.action_mailer.smtp_settings = {
-    address: "smtp.mailgun.org",
+    address: "smtp.gmail.com",
     port: 587,
-    domain: "sandboxaad8223281b447c1b3b234da95b4fff9.mailgun.org",
+    domain: "shoes-style69.ru",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "postmaster@sandboxaad8223281b447c1b3b234da95b4fff9.mailgun.org",
-    password: "9616c3993ca5a03b1ff290453ccb032b"
+    user_name: "jekaantipin69@gmail.com",
+    password: "irbis551013"
   }
 
   config.action_mailer.default_url_options = { host: "shoes-style69.ru" }
