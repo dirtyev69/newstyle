@@ -11,6 +11,7 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'breadcrumbs_on_rails'
 
+gem 'responders'
 
 gem 'mailgun_rails'
 

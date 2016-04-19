@@ -39,10 +39,11 @@ class Style
 
     new Lib.Pagi(@$container.find('@pagination'))
 
-    $('@imageGrid').imageGrid({
+    $('@imageGrid').imageGridNew({
       rowCount: 3,
       grid: 0,
-      rowHeight: 150
+      minRowHeight: 250,
+      maxRowHeight: 450
     });
 
     autosize(@$container.find('@autosize'))

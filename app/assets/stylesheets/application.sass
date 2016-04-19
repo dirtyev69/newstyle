@@ -28,6 +28,25 @@
 body
   +better-fonts
 
+@keyframes panel-animateIn
+  0%
+    opacity: 0
+    // transform: translateY(-100px) rotate(-10deg) scale(0.9)
+  100%
+    opacity: 1
+    // transform: translateY(0px)
+
+
+
+.imgGrid
+  img
+    opacity: 0
+    // transition: opacity 0.3s ease
+
+.imgAnim
+  transition: opacity 0.5s ease-out
+  //   animation: 0.25s ease 0s normal none 1 running panel-animateIn
+
 .preloader
   position: absolute
   left: 50%
@@ -72,7 +91,7 @@ a
 
 .container
   position: relative
-  max-width: 989px
+  max-width: 1200px
   padding: 0 15px
 
 .content

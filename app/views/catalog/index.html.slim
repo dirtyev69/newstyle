@@ -45,7 +45,7 @@ h1.hide Каталог обуви
         = link_to 'Сумки', catalog_index_path(type: 8)
     / li
     /   = link_to 'Все сразу', galleries_path(all: true)
-  .gallery__list@masonry@paginatable data-id="#{gallery.id}"
+  .row.gallery__list@masonry@paginatable data-id="#{gallery.id}"
     - unless paintings_collection(gallery).present?
       p.lead Извините, товара такого типа пока нет
     - paintings_collection(gallery).each do |item|
