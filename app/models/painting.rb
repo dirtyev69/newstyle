@@ -7,4 +7,6 @@ class Painting < ActiveRecord::Base
   mount_uploader :image, Painting::ImageUploader
 
   scope :ordered, -> { order("item_type ASC") }
+
+  scope :newest_first, -> { order("created_at DESC") }
 end
