@@ -4,7 +4,11 @@
   .col-md-6
     = simple_form_for @painting, :url => admin_painting_path(@painting), :html => { :multipart => true } do |f|
       = f.error_messages
-      = f.hidden_field :gallery_id
+      / = f.hidden_field :gallery_id
+
+      p
+        = f.label :gallery_id
+        = f.input :gallery_id, :label => false
       p
         = f.label :name
         = f.input :name, :label => false
