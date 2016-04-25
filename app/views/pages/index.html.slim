@@ -14,7 +14,9 @@
   .imgGrid@imageGrid
     / = image_tag('waldlaufer.jpg', alt: 'Waldlaufer')
     / = image_tag('bf.jpg', alt: 'Spring Summer 2016')
-    = image_tag('2016.jpg', alt: 'Spring Summer 2016')
+    noindex
+      = link_to catalog_index_path
+        = image_tag('2016.jpg', alt: 'Spring Summer 2016')
     / = image_tag('dakkem.jpg', alt: 'Dakkem')
     = image_tag('pikolinos_colors_01.jpg', alt: 'Dakkem')
     = image_tag('pic_summer.jpg', alt: 'Pikolinas Summer 2016')
