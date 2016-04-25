@@ -40,11 +40,11 @@ protected
 
   def paintings_collection(gallery)
     if params[:type].present?
-      @paintings_collection ||= gallery.paintings.where(:item_type => params[:type]).newest_first.ordered.page(params[:page])
+      @paintings_collection ||= gallery.paintings.where(:item_type => params[:type]).ordered.newest_first.page(params[:page])
     elsif params[:all].present?
-      @paintings_collection ||= gallery.paintings.newest_first.ordered
+      @paintings_collection ||= gallery.paintings.ordered.newest_first
     else
-      @paintings_collection ||= gallery.paintings.newest_first.ordered.page(params[:page])
+      @paintings_collection ||= gallery.paintings.ordered.newest_first.page(params[:page])
     end
   end
 end
