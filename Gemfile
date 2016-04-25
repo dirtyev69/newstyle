@@ -82,6 +82,7 @@ gem 'rails-assets-imagesloaded'
 gem 'rails-assets-masonry'
 gem 'rails-assets-jquery.lazyload'
 gem 'rails-assets-jquery-autosize'
+gem 'rails-assets-jquery-cookie'
 
 gem 'rails-assets-nprogress'
 gem 'rails-assets-underscore'

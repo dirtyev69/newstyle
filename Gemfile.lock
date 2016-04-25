@@ -178,6 +178,8 @@ GEM
       rails-assets-ev-emitter (~> 1.0.0)
     rails-assets-jquery (2.2.3)
     rails-assets-jquery-autosize (3.0.15)
+    rails-assets-jquery-cookie (1.4.1)
+      rails-assets-jquery (>= 1.2)
     rails-assets-jquery.lazyload (1.9.7)
     rails-assets-masonry (4.0.0)
       rails-assets-get-size (~> 2.0.2)
@@ -314,6 +316,7 @@ DEPENDENCIES
   rails-assets-fotorama
   rails-assets-imagesloaded
   rails-assets-jquery-autosize
+  rails-assets-jquery-cookie
   rails-assets-jquery.lazyload
   rails-assets-masonry
   rails-assets-nprogress

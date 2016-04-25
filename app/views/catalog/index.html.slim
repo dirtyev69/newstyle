@@ -15,6 +15,14 @@ h1.hide Каталог обуви
 - for gallery in @galleries
   h2.gallery__title
     = gallery.name
+
+
+  ul.view_swither.visible-lg-block.visible-md-block
+    li
+      = link_to fa_icon('th-large'), 'javascript:void(0);', role: 'viewSwitherLarge', class: 'active'
+    li
+      = link_to fa_icon('th'), 'javascript:void(0);', role: 'viewSwitherSmall'
+
   ul.filter
     - types = Gallery.find(gallery.id).paintings.pluck(:item_type).uniq
     li class="#{'active' if search == nil && !params[:all]}"
@@ -49,7 +57,7 @@ h1.hide Каталог обуви
     - unless paintings_collection(gallery).present?
       p.lead Извините, товара такого типа пока нет
     - paintings_collection(gallery).each do |item|
-      .col-md-4.col-sm-4.col-xs-12
+      .col-md-4.col-sm-4.col-xs-12@viewItem
         .gallery__item
           .gallery__item__link
             = image_tag('preloader.svg', role: 'preloader', class: 'preloader visible-lg-block visible-md-block')

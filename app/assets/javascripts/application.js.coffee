@@ -11,6 +11,7 @@
 
 #= require fancybox/source/jquery.fancybox.pack
 #= require fancybox/source/helpers/jquery.fancybox-thumbs
+#= require jquery-cookie
 
 #= require underscore/underscore.js
 #= require js-routes
@@ -38,6 +39,8 @@ class Style
     new Lib.Masonry(@$container.find('@masonry'))
 
     new Lib.Pagi(@$container.find('@pagination'))
+
+    new Lib.ViewSwither(@$container)
 
     $('@imageGrid').imageGridNew({
       rowCount: 3,
