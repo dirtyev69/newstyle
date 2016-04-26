@@ -7,7 +7,7 @@ coffee:
   div type="button" class="modal-close" data-dismiss="modal"
 
   .container.hide
-    = link_to image_tag(resource_painting.image_url(:full), class: 'img-responsive'), resource_painting.image_url(:full), role: 'fancyboxThumb', rel: "thumb_#{resource_painting.id}"
+    = link_to image_tag(resource_painting.image_url(:full), class: 'img-responsive'), resource_painting.image_url(:full), role: 'fancyboxThumb', rel: "thumb_#{resource_painting.id}", title: resource_painting.name
     - resource_painting.previews.each do |p|
       = link_to image_tag(p.asset_url(:full), class: 'img-responsive'), p.asset_url(:full), role: 'fancyboxThumb', rel: "thumb_#{resource_painting.id}"
 

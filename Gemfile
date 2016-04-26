@@ -37,6 +37,7 @@ gem 'rmagick'
 gem 'russian'
 
 gem 'pg'
+gem 'pg_search'
 gem 'protected_attributes'
 
 gem 'slim'

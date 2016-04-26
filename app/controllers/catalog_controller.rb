@@ -43,6 +43,8 @@ protected
       @paintings_collection ||= gallery.paintings.where(:item_type => params[:type]).ordered.newest_first.page(params[:page])
     elsif params[:all].present?
       @paintings_collection ||= gallery.paintings.ordered.newest_first
+    elsif params[:query].present?
+      @paintings_collection ||= gallery.paintings.text_search(params[:query]).ordered.newest_first.page(params[:page])
     else
       @paintings_collection ||= gallery.paintings.ordered.newest_first.page(params[:page])
     end

@@ -13,6 +13,8 @@ class Pages.Previews
       closeBtn: false
       helpers:
         overlay : null
+        title:
+          type : 'float'
         thumbs:
           width: 60
           height: 60

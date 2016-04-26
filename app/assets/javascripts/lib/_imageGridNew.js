@@ -73,7 +73,15 @@
 
         heightN = wWidth / s;
         console.log(s);
-        if (( heightN >= settings.minRowHeight ) && ( heightN <= settings.maxRowHeight )) {
+
+        var minRowHeight
+        minRowHeight = 0;
+
+        var maxRowHeight;
+        maxRowHeight = wWidth / 3;
+        console.log(minRowHeight);
+        console.log(maxRowHeight);
+        if (( heightN >= minRowHeight ) && ( heightN <= maxRowHeight )) {
 
           for (j = 0; j < buf.length;  j++) {
             $element = $(buf[j]);
