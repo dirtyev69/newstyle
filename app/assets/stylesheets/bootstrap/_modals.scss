@@ -96,18 +96,16 @@
 
 .modal-close {
   position: absolute;
-  right: 10px;
-  top: 10px;
+  right: 50px;
+  top: 50px;
   z-index: 99999;
-  background: #131313;
   cursor: pointer;
   filter: alpha(opacity=80);
   opacity: .8;
-  height: 26px;
-  width: 26px;
+  height: 80px;
+  width: 80px;
   color: #fff;
-  background-position: -210px -8px;
-  background-image: image-url('sprite.svg');
+  background-image: image-url('cross.svg');
   &:hover {
     opacity: 1;
   }
