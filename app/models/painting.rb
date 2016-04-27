@@ -1,7 +1,7 @@
 class Painting < ActiveRecord::Base
 
   include PgSearch
-  pg_search_scope :search, :against => :name
+  pg_search_scope :search, :against => :name, :using => { :tsearch => {:prefix => true} }
 
   paginates_per 25
   attr_accessible :gallery_id, :name, :price, :image, :remote_image_url, :item_type, :privews_attributes
