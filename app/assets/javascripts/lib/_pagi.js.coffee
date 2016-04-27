@@ -16,8 +16,8 @@ class Lib.Pagi
       @$container.css({ opacity: 0 })
 
       self.$container.imagesLoaded ->
-        self.$container.animate({ opacity: 1 })
-        self.$preloader.animate({ opacity: 0 }).remove()
+        self.$container.animate({ opacity: 1 }, 300)
+        self.$preloader.animate({ opacity: 0 }, 300).remove()
     # @$container.parents(':first').off('click', '@more').on('click', '@more'
     #   ->
     #     return false if self.$container.data('loading')
