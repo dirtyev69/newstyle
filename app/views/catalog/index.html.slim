@@ -58,13 +58,7 @@ h1.hide Каталог обуви
       - if types.include?(8)
         li class="#{'active' if search.to_i == 8}"
           = link_to 'Сумки', catalog_index_path(type: 8)
-  - else
-    p.search_results
-      | Результаты поиска
-      '
-      |"
-      = params[:query]
-      |"
+
     / li
     /   = link_to 'Все сразу', galleries_path(all: true)
   .row.gallery__list@masonry@paginatable data-id="#{gallery.id}"
