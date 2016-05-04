@@ -37,4 +37,19 @@ module ApplicationHelper
 
     content_tag(:div, html.html_safe, class: 'pagination_container', role: 'pagination')
   end
+
+  def svg_icon(filename, options = {})
+    file = File.read(Rails.root.join('app', 'assets', 'images', 'icons', "#{filename}.svg"))
+    doc = Nokogiri::HTML::DocumentFragment.parse(file)
+    svg = doc.at_css 'svg'
+
+    svg['class'] = 'svg__icon'
+    svg['role'] = options[:role]
+
+
+    html = doc.to_html.html_safe
+    html << notification(options[:badge][:count].to_i, options[:badge]) if options[:badge].present?
+
+    content_tag(:span, html, class: "svg #{options[:class]}") + options[:text].try(:html_safe)
+  end
 end

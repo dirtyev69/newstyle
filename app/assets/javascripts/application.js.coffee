@@ -42,6 +42,20 @@ class Style
 
     new Lib.ViewSwither(@$container)
 
+
+    $(document).on("click", ->
+      self.$container.find('@searchForm').removeClass('active')
+    )
+
+    $('@searchForm').on("click", (e) ->
+      e.stopPropagation()
+    )
+
+    @$container.find('@toggleSearch').off("click").on("click", (e) ->
+      e.stopPropagation()
+      self.$container.find('@searchForm').toggleClass('active')
+    )
+
     $('@imageGrid').imageGridNew({
       rowCount: 3,
       grid: 0,

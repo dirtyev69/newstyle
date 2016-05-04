@@ -10,6 +10,11 @@ coffee:
 - seo_keywords 'каталог обуви, женская обувь, магазин обуви, тверь, обувь 2015, туфли, cапоги, полусапожки, ботильоны, ботинки, сумки'
 
 
+= form_tag catalog_index_path, class: "search_form #{params[:query].present?  && 'active'}", role: 'searchForm', method: :get
+  = text_field_tag :query, params[:query], placeholder: 'Поиск'
+  / = button_tag(type: 'submit') do
+  /   = fa_icon('search')
+
 h1.hide Каталог обуви
 
 - for gallery in @galleries
@@ -19,11 +24,8 @@ h1.hide Каталог обуви
 
   ul.view_swither
     li
-      = form_tag catalog_index_path, class: 'search_form', method: :get
-        = text_field_tag :query, params[:query]
-        = button_tag(type: 'submit') do
-          = fa_icon('search')
-
+      = link_to 'javascript:void(0);', role: 'toggleSearch', class: 'view_swither__search'
+        = svg_icon('search')
     li
       = link_to fa_icon('th-large'), 'javascript:void(0);', role: 'viewSwitherLarge', class: 'active'
     li

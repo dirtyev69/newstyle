@@ -17,8 +17,7 @@ gem 'mailgun_rails'
 
 gem "carrierwave"
 gem 'coffee-rails'
-gem 'compass', '1.0.3'
-gem 'compass-rails', '2.0.4'
+
 gem 'chunky_png', '1.3.4'
 
 gem 'daemons'
@@ -44,9 +43,12 @@ gem 'slim'
 gem 'simple_form'
 gem 'skim'
 gem 'scrypt'
-gem 'sass-rails', '5.0.1'
+gem 'sass-rails'
 gem 'sqlite3'
 gem 'sdoc', '~> 0.4.0', group: :doc
+
+gem 'sprockets', '>=3.0.0.beta'
+gem 'sprockets-es6'
 
 gem 'unicorn'
 
