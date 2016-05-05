@@ -27,11 +27,11 @@ h1.hide Каталог обуви
     ul.filter
       - types = Gallery.find(gallery.id).paintings.pluck(:item_type).uniq
       li class="#{'active' if search == nil && !params[:all]}"
-        = link_to 'Все', sort_by_type_path(type: nil), remote: true, role: 'sortLink'
+        = link_to 'Все', catalog_index_path(type: nil), remote: true, role: 'sortLink'
       - Painting::MODEL_TYPES.each do | key, value |
         - if types.include?(value)
           li class="#{'active' if search.to_i == value}"
-            = link_to key, sort_by_type_path(type: value), remote: true, role: 'sortLink'
+            = link_to key, catalog_index_path(type: value), remote: true, role: 'sortLink'
 
     / li
     /   = link_to 'Все сразу', galleries_path(all: true)
