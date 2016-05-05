@@ -1,29 +1,29 @@
-#= require jquery
-#= require jquery_ujs
-#= require jquery.role
-#= require role
-#= require fotorama
-#= require bootstrap-sass
+//= require jquery
+//= require jquery_ujs
+//= require jquery.role
+//= require role
+//= require fotorama
+//=require bootstrap-sass
 
-#= require nprogress/nprogress.js
-#= require imagesloaded/imagesloaded.pkgd
-#= require masonry/dist/masonry.pkgd
+//=require nprogress/nprogress.js
+//=require imagesloaded/imagesloaded.pkgd
+//= require masonry/dist/masonry.pkgd
 
-#= require fancybox/source/jquery.fancybox.pack
-#= require fancybox/source/helpers/jquery.fancybox-thumbs
-#= require jquery-cookie
+//=require fancybox/source/jquery.fancybox.pack
+//=require fancybox/source/helpers/jquery.fancybox-thumbs
+//=require jquery-cookie
 
-#= require underscore/underscore.js
-#= require js-routes
-#= require underscore.string/underscore.string.js
-#= require jquery-autosize
-#= require_tree ./ext
-#= require_tree ./lib
-#= require_tree ./pages
-#= require_tree ./templates
+//=require underscore/underscore.js
+//=require js-routes
+//=require underscore.string/underscore.string.js
+//=require jquery-autosize
+//=require_tree ./ext
+//= require_tree ./lib
+//=require_tree ./pages
+//=require_tree ./templates
 
-#= require_tree .
-#= require_self
+//= require_tree .
+//= require_self
 
 
 $(document).ready(() => {
@@ -50,7 +50,7 @@ class Style {
     new Lib.Up($(self).find("@up"))
 
     $(self).on("click", e => {
-      self.$container.find('@searchForm').removeClass('active');
+      $(self).find('@searchForm').removeClass('active');
     });
 
     $('@searchForm').on("click", e => {
