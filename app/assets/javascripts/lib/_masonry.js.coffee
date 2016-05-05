@@ -8,3 +8,4 @@ class Lib.Masonry
     @$container.imagesLoaded ->
       self.$container.masonry
         transitionDuration: 0
+        singleMode: true

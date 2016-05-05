@@ -14,6 +14,26 @@ class CatalogController < ApplicationController
   end
 
 
+  def sort_by_type
+    @gallery = Gallery.show_on_main.first
+    # render :layout => false
+
+    if params[:type].present?
+      @paintings_collection ||= @gallery.paintings.where(:item_type => params[:type]).ordered.newest_first.page(params[:page])
+    else
+      @paintings_collection ||= @gallery.paintings.ordered.newest_first.page(params[:page])
+    end
+
+    if request.xhr?
+      render :json => {
+        :data => render_to_string(:partial => 'catalog/shared/tiles', :locals => { :articles => @paintings_collection }),
+        :pagination => view_context.render_pagination(@paintings_collection)}
+      return
+    end
+
+  end
+
+
   def get_previews
     render :layout => false
     # if request.xhr?

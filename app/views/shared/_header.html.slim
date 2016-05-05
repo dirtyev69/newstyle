@@ -8,10 +8,13 @@
     ul.nav-main@menu
       li class="#{controller_name == 'catalog' && 'active'}"
         = link_to catalog_index_path
-          span Каталог обуви
+          span ВЕСНА - ЛЕТО 2016
       li class="#{controller_name == 'pages' && action_name == 'contacts' && 'active'}"
         = link_to contacts_path
           span Контакты
       li class="#{controller_name == 'pages' && action_name == 'about' && 'active'}"
         = link_to about_path
           span О нас
+      li
+        = link_to 'javascript:void(0);', role: 'toggleSearch', class: 'view_swither__search'
+          = svg_icon('search')

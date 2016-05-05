@@ -1,0 +1,4 @@
+= form_tag catalog_index_path, class: "search_form #{params[:query].present?  && 'active'}", role: 'searchForm', method: :get
+  = text_field_tag :query, params[:query], placeholder: 'Поиск'
+  / = button_tag(type: 'submit') do
+  /   = fa_icon('search')

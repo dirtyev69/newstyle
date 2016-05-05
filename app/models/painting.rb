@@ -14,6 +14,17 @@ class Painting < ActiveRecord::Base
 
   scope :newest_first, -> { order("created_at DESC") }
 
+  MODEL_TYPES = {
+    "Туфли" => 1,
+    "Босоножки" => 2,
+    "Шлепанцы" => 3,
+    "Сапоги" => 4,
+    "Полусапожки" => 5,
+    "Ботильоны" => 6,
+    "Ботинки" => 7,
+    "Сумки" => 8
+  }
+
   def self.text_search(query)
     if query.present?
       search(query)

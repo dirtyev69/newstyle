@@ -30,7 +30,7 @@ html
     .up.visible-lg-block.visible-md-block@up
       = fa_icon "long-arrow-up", text: 'Наверх'
     = render :partial => 'shared/header'
-
+    = render :partial => 'shared/search'
     = content_for (:test)
     .container.container-main class="#{(controller_name == 'pages' && action_name == 'index') && 'padding-top-none'}"
       = yield

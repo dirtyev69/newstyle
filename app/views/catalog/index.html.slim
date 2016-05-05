@@ -10,22 +10,14 @@ coffee:
 - seo_keywords 'каталог обуви, женская обувь, магазин обуви, тверь, обувь 2015, туфли, cапоги, полусапожки, ботильоны, ботинки, сумки'
 
 
-= form_tag catalog_index_path, class: "search_form #{params[:query].present?  && 'active'}", role: 'searchForm', method: :get
-  = text_field_tag :query, params[:query], placeholder: 'Поиск'
-  / = button_tag(type: 'submit') do
-  /   = fa_icon('search')
-
 h1.hide Каталог обуви
 
 - for gallery in @galleries
-  h2.gallery__title
-    = gallery.name
+  / h2.gallery__title
+  /   = gallery.name
 
 
   ul.view_swither
-    li
-      = link_to 'javascript:void(0);', role: 'toggleSearch', class: 'view_swither__search'
-        = svg_icon('search')
     li
       = link_to fa_icon('th-large'), 'javascript:void(0);', role: 'viewSwitherLarge', class: 'active'
     li
@@ -35,31 +27,11 @@ h1.hide Каталог обуви
     ul.filter
       - types = Gallery.find(gallery.id).paintings.pluck(:item_type).uniq
       li class="#{'active' if search == nil && !params[:all]}"
-        = link_to 'Все', catalog_index_path(type: nil)
-      - if types.include?(1)
-        li class="#{'active' if search.to_i == 1}"
-          = link_to 'Туфли', catalog_index_path(type: 1)
-      - if types.include?(2)
-        li class="#{'active' if search.to_i == 2}"
-          = link_to 'Босоножки', catalog_index_path(type: 2)
-      - if types.include?(3)
-        li class="#{'active' if search.to_i == 3}"
-          = link_to 'Шлепанцы', catalog_index_path(type: 3)
-      - if types.include?(4)
-        li class="#{'active' if search.to_i == 4}"
-          = link_to 'Сапоги', catalog_index_path(type: 4)
-      - if types.include?(5)
-        li class="#{'active' if search.to_i == 5}"
-          = link_to 'Полусапожки', catalog_index_path(type: 5)
-      - if types.include?(6)
-        li class="#{'active' if search.to_i == 6}"
-          = link_to 'Ботильоны', catalog_index_path(type: 6)
-      - if types.include?(7)
-        li class="#{'active' if search.to_i == 7}"
-          = link_to 'Ботинки', catalog_index_path(type: 7)
-      - if types.include?(8)
-        li class="#{'active' if search.to_i == 8}"
-          = link_to 'Сумки', catalog_index_path(type: 8)
+        = link_to 'Все', sort_by_type_path(type: nil), remote: true, role: 'sortLink'
+      - Painting::MODEL_TYPES.each do | key, value |
+        - if types.include?(value)
+          li class="#{'active' if search.to_i == value}"
+            = link_to key, sort_by_type_path(type: value), remote: true, role: 'sortLink'
 
     / li
     /   = link_to 'Все сразу', galleries_path(all: true)
@@ -70,7 +42,7 @@ h1.hide Каталог обуви
       .col-md-4.col-sm-4.col-xs-12@viewItem
         .gallery__item
           .gallery__item__link
-            = image_tag('preloader.svg', role: 'preloader', class: 'preloader visible-lg-block visible-md-block')
+            / = image_tag('preloader.svg', role: 'preloader', class: 'preloader visible-lg-block visible-md-block')
             = image_tag(item.image_url(:full), class: 'img-responsive', role: 'catalogItem')
 
             = link_to '', get_previews_path(item), data: { toggle: 'modal', target: '@modal' }, class: 'gallery__item__link-pseudo'

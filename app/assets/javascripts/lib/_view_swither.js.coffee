@@ -16,8 +16,6 @@ class Lib.ViewSwither
       self.$container.find('@masonry').addClass('gallery__list-small')
 
     @$container.find('@viewSwitherSmall').off("click").on("click", ->
-      console.log 'small'
-
       $.cookie('view', 'small', { path: '/'} )
 
       self.$container.find('@viewSwitherLarge').removeClass('active')
@@ -26,7 +24,6 @@ class Lib.ViewSwither
     )
 
     @$container.find('@viewSwitherLarge').off("click").on("click", ->
-
       $.cookie('view', 'large', { path: '/'} )
 
       self.$container.find('@viewSwitherSmall').removeClass('active')
