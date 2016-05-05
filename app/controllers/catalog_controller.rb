@@ -5,44 +5,14 @@ class CatalogController < ApplicationController
   def index
     @galleries = Gallery.show_on_main
     @gallery = Gallery.show_on_main.first
-
-    if request.xhr?
-
-      if params[:type].present?
-        @paintings_collection ||= @gallery.paintings.where(:item_type => params[:type]).ordered.newest_first.page(params[:page])
-        render :json => {
-          :data => render_to_string(:partial => 'catalog/shared/tiles', :locals => { :articles => @paintings_collection }),
-          :pagination => view_context.render_pagination(@paintings_collection)}
-        return
-      else
-
-        resource_gallery = resource_gallery ?  resource_gallery : @gallery
-        render :json => {
-          :data => render_to_string(:partial => 'catalog/shared/tiles', :locals => { :articles => paintings_collection(resource_gallery) }),
-          :pagination => view_context.render_pagination(paintings_collection(resource_gallery))}
-        return
-      end
-    end
-  end
-
-
-  def sort_by_type
-    @gallery = Gallery.show_on_main.first
-    # render :layout => false
-
-    if params[:type].present?
-      @paintings_collection ||= @gallery.paintings.where(:item_type => params[:type]).ordered.newest_first.page(params[:page])
-    else
-      @paintings_collection ||= @gallery.paintings.ordered.newest_first.page(params[:page])
-    end
+    resource_gallery = resource_gallery ?  resource_gallery : @gallery
 
     if request.xhr?
       render :json => {
-        :data => render_to_string(:partial => 'catalog/shared/tiles', :locals => { :articles => @paintings_collection }),
-        :pagination => view_context.render_pagination(@paintings_collection)}
+        :data => render_to_string(:partial => 'catalog/shared/tiles', :locals => { :articles => paintings_collection(resource_gallery) }),
+        :pagination => view_context.render_pagination(paintings_collection(resource_gallery))}
       return
     end
-
   end
 
 

@@ -28,7 +28,8 @@ html
 
   body
     .up.visible-lg-block.visible-md-block@up
-      = fa_icon "long-arrow-up", text: 'Наверх'
+      = svg_icon('left-arrow')
+
     = render :partial => 'shared/header'
     = render :partial => 'shared/search'
     = content_for (:test)

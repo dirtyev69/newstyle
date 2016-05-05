@@ -13,8 +13,6 @@ resources :paintings
 
 get '/catalog/:painting_id/get_previews' => 'catalog#get_previews', :as => 'get_previews'
 
-get '/catalog/sort_by_type' => 'catalog#sort_by_type', :as => 'sort_by_type'
-
 get 'show_all' => 'paintings#show_all'
 
 match 'contacts' => 'pages#contacts', :via => :get

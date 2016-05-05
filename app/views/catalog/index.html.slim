@@ -17,12 +17,6 @@ h1.hide Каталог обуви
   /   = gallery.name
 
 
-  ul.view_swither
-    li
-      = link_to fa_icon('th-large'), 'javascript:void(0);', role: 'viewSwitherLarge', class: 'active'
-    li
-      = link_to fa_icon('th'), 'javascript:void(0);', role: 'viewSwitherSmall'
-
   - unless params[:query].present?
     ul.filter
       - types = Gallery.find(gallery.id).paintings.pluck(:item_type).uniq
@@ -32,6 +26,10 @@ h1.hide Каталог обуви
         - if types.include?(value)
           li class="#{'active' if search.to_i == value}"
             = link_to key, catalog_index_path(type: value), remote: true, role: 'sortLink'
+      li.view_swither
+        = link_to fa_icon('th-large'), 'javascript:void(0);', role: 'viewSwitherLarge', class: 'active'
+        = link_to fa_icon('th'), 'javascript:void(0);', role: 'viewSwitherSmall'
+
 
     / li
     /   = link_to 'Все сразу', galleries_path(all: true)
