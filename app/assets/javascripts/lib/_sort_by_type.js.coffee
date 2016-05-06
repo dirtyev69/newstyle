@@ -7,21 +7,17 @@ class Lib.SortByType
       self = this
       @loading = false
 
-      # this._setup_sort_handler()
 
       @$masonry = $(document).find('@masonry')
-
       @$sortLink = $(document).find('@sortLink')
 
-      console.log(@$sortLink)
-
-      @$container.css({ opacity: 0 })
-
-      self.$container.imagesLoaded ->
-        self.$container.animate({ opacity: 1 })
+      # self.$container.imagesLoaded ->
+      #   self.$container.animate({ opacity: 1 })
 
       @$sortLink.off("click").on("click", (e) ->
         e.preventDefault()
+
+        self.$container.css({ opacity: 0 }, 500)
 
         self.$sortLink.closest("li").removeClass('active')
         $(e.target).closest("li").addClass('active')
@@ -51,7 +47,7 @@ class Lib.SortByType
             window.history.pushState('string', document.title, url)
 
             if json?
-              $html = $(json.data).css({ opacity: 0 })
+              $html = $(json.data)
               $list = $(document).find('@masonry')
 
               $list.empty()
@@ -62,7 +58,7 @@ class Lib.SortByType
                   $pagination = $(document).find('@pagination')
                   $pagination.html(json.pagination)
 
-                  $html.animate({ opacity: 1 })
+                  self.$container.animate({ opacity: 1 }, 500)
 
                   @$masonry = $(document).find('@masonry')
                   $list.masonry('appended', $html, true)

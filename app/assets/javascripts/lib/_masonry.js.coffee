@@ -7,5 +7,10 @@ class Lib.Masonry
 
     @$container.imagesLoaded ->
       self.$container.masonry
-        transitionDuration: 0
-        singleMode: true
+        transitionDuration: 0,
+        isAnimated: true,
+        animationOptions: {
+          duration: 750,
+          easing: 'linear',
+          queue: false
+        }
