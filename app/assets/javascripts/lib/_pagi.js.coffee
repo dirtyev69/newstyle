@@ -11,13 +11,10 @@ class Lib.Pagi
 
       this._setup_scroll_handler()
 
-      @$preloader = $(document).find('@preloader')
-
       @$container.css({ opacity: 0 })
 
       self.$container.imagesLoaded ->
         self.$container.animate({ opacity: 1 }, 300)
-        self.$preloader.animate({ opacity: 0 }, 300).remove()
     # @$container.parents(':first').off('click', '@more').on('click', '@more'
     #   ->
     #     return false if self.$container.data('loading')
@@ -77,10 +74,7 @@ class Lib.Pagi
               self.$container.html(json.pagination)
               $html.animate({ opacity: 1 })
 
-              $preloader = $(document).find('@preloader')
-
               $list.masonry('appended', $html, true)
-              $preloader.animate({ opacity: 0 })
 
           )
       )

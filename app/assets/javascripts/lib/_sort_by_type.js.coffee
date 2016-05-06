@@ -9,8 +9,6 @@ class Lib.SortByType
 
       # this._setup_sort_handler()
 
-      @$preloader = $(document).find('@preloader')
-
       @$masonry = $(document).find('@masonry')
 
       @$sortLink = $(document).find('@sortLink')
@@ -20,9 +18,7 @@ class Lib.SortByType
       @$container.css({ opacity: 0 })
 
       self.$container.imagesLoaded ->
-        self.$container.animate({ opacity: 1 }, 300)
-        self.$preloader.animate({ opacity: 0 }, 300).remove()
-
+        self.$container.animate({ opacity: 1 })
 
       @$sortLink.off("click").on("click", (e) ->
         e.preventDefault()
@@ -68,13 +64,10 @@ class Lib.SortByType
 
                   $html.animate({ opacity: 1 })
 
-                  $preloader = $(document).find('@preloader')
-
                   @$masonry = $(document).find('@masonry')
                   $list.masonry('appended', $html, true)
                   $list.masonry('reloadItems')
                   $list.masonry('layout')
-                  $preloader.animate({ opacity: 0 })
 
               )
           )
