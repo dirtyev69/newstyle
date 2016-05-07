@@ -1,35 +1,3 @@
-# production.rb
-set :rails_env,      'production'
-set :deploy_env,     :rails_env
-set :bundle_without,  [:development, :test]
-
-set :deploy_to_application_name , 'prod'
-
-set :repo_url, "git@github.com:dirtyev69/newstyle.git"
-
-set :branch, 'cap3'
-set :deploy_to, "/var/www/#{deploy_to_application_name}"
-
-set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
-
-# Настраиваем ssh до сервера
-#set :gateway, "guest@dev-02.snpdev.ru:10332"
-server "5.101.99.155", :app, :web, :db, :primary => true
-
-# Используем rvm
-set :using_rvm, true
-set :rvm_ruby_string, 'ruby-2.2.1'
-set :rvm_type, :user
-
-# Авторизационные данные
-set :user, "rails"
-set :group, "rails"
-set :password, 'jekan777'
-
-# Unicorn config
-set :unicorn_config, "#{current_path}/config/unicorn.rb"
-
-
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.

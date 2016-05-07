@@ -1,9 +1,11 @@
-require 'rvm/capistrano'
-
+lock '3.5.0'
 require 'bundler/capistrano'
-
 require 'capistrano_colors'
-require 'capistrano/ext/multistage'
+
+load '/config/deploy/tasks/tasks.rb'
+
+
+set :keep_releases, 3
 
 set :default_stage, 'production'
 set :stages, %w(production)
@@ -29,7 +31,6 @@ set :scm_verbose, true
 set :scm, :git
 set :deploy_via, :remote_cache
 set :copy_exclude, [".git"]
-set :normalize_asset_timestamps, false
 
 set :shared_children, shared_children + %w(tmp/sockets public/uploads)
 
@@ -66,89 +67,54 @@ namespace :assets do
           ln -s #{shared_path}/assets #{latest_release}/public/assets")
   end
 end
-# namespace :deploy do
-#   task :cope_with_git_repo_relocation do
-#     run "if [ -d #{shared_path}/cached-copy ]; then cd #{shared_path}/cached-copy && git remote set-url origin #{repository}; else true; fi"
-#   end
-# end
 
-# before "deploy:update_code", "deploy:cope_with_git_repo_relocation"
-
-# namespace :deploy do
-#   desc 'Application-specific code after update_code'
-#   after 'deploy:update_code' do
-#     run %(
-#       rm -f #{release_path}/config/database.yml &&
-#       ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml
-#         )
-
-#     run %(
-#       chgrp -R www #{release_path} &&
-#       chmod -R o-rwx #{release_path}
-#         )
-#   end
-
-#   task :start, roles: :app, except: { no_release: true } do
-#     run "cd #{current_path} && #{try_sudo} #{unicorn_binary} -c #{unicorn_config} -E #{rails_env} -D"
-#   end
-#   task :stop, roles: :app, except: { no_release: true } do
-#     run "#{try_sudo} kill `cat #{unicorn_pid}`"
-#   end
-#   task :graceful_stop, roles: :app, except: { no_release: true } do
-#     run "#{try_sudo} kill -s QUIT `cat #{unicorn_pid}`"
-#   end
-#   task :reload, roles: :app, except: { no_release: true } do
-#     run "#{try_sudo} kill -s USR2 `cat #{unicorn_pid}`"
-#   end
-#   task :restart, roles: :app, except: { no_release: true } do
-#     run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then #{try_sudo} kill -USR2 `cat #{unicorn_pid}`; else cd #{current_path} && #{try_sudo} #{unicorn_binary} -c #{unicorn_config} -E #{rails_env} -D; fi"
-#   end
-# end
-
-# Unicorn config
 set :unicorn_binary, "unicorn"
 
 after 'deploy:restart', 'deploy:cleanup'
 
-# ################################
-# # encoding: utf-8
-# set :stages, %w(development testing production)
-# set :default_stage, "production"
 
-# set :application, "prod"
+# config valid only for current version of Capistrano
 
-# set :git_application_name       , 'prod'
-# set :deploy_to_application_name , application
+# Default branch is :master
+# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
-# set :symlinks,  [
-#                   { :label => :db, :path => 'config/database.yml' },
-#                 ]
+# Default deploy_to directory is /var/www/my_app_name
+# set :deploy_to, '/var/www/my_app_name'
 
-# # Capistrano config
+# Default value for :scm is :git
 # set :scm, :git
-# set :copy_exclude, [".git"]
-# set :deploy_via, :remote_cache
-# set :normalize_asset_timestamps, false
 
-# set :shared_children, shared_children + %w{public/uploads}
+# Default value for :format is :airbrussh.
+# set :format, :airbrussh
 
-# # Bundle config
-# set :bundle_binary, "bundle"
-# set :bundle_flags,  "--deployment"
+# You can configure the Airbrussh format using :format_options.
+# These are the defaults.
+# set :format_options, command_output: true, log_file: 'log/capistrano.log', color: :auto, truncate: :auto
 
-# set :ssh_options, {
-#   forward_agent: true,
-#   paranoid: true,
-#   keys: "~/.ssh/id_rsa_prod"
-# }
+# Default value for :pty is false
+# set :pty, true
 
-# require 'capistrano/ext/multistage'
-# require "bundler/capistrano"
-# # require "whenever/capistrano"
-# require "delayed/recipes"
+# Default value for :linked_files is []
+# set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
-# # Unicorn config
-# set :unicorn_binary, "unicorn"
+# Default value for linked_dirs is []
+# set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system')
 
+# Default value for default_env is {}
+# set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
-# after "deploy:restart", "deploy:cleanup"
+# Default value for keep_releases is 5
+# set :keep_releases, 5
+
+# namespace :deploy do
+
+#   after :restart, :clear_cache do
+#     on roles(:web), in: :groups, limit: 3, wait: 10 do
+#       # Here we can do anything such as:
+#       # within release_path do
+#       #   execute :rake, 'cache:clear'
+#       # end
+#     end
+#   end
+
+# end

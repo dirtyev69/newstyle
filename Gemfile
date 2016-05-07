@@ -66,11 +66,13 @@ group :assets do
 end
 
 group :development do
-  gem 'capistrano'
-  gem 'capistrano_colors'
-  gem 'capistrano-ext'
+  gem 'capistrano', '~> 3.5'
+  gem 'capistrano_colors', '~> 0.5.5'
+  gem 'capistrano-rails',   '~> 1.1', require: false
+  gem 'capistrano-bundler', '~> 1.1', require: false
+  gem 'capistrano-ext', '~> 1.2', '>= 1.2.1'
   gem 'quiet_assets'
-  gem 'rvm-capistrano', require: false
+  gem 'capistrano-rvm', '~> 0.1.2', require: false
 end
 
 
