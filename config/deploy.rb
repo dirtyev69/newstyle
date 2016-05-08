@@ -1,9 +1,8 @@
 lock '3.5.0'
-require 'bundler/capistrano'
-require 'capistrano_colors'
 
-load '/config/deploy/tasks/tasks.rb'
-
+set :user, "rails"
+set :group, "rails"
+set :password, 'jekan777'
 
 set :keep_releases, 3
 
@@ -13,7 +12,7 @@ set :stages, %w(production)
 set :application, "prod"
 
 set :git_application_name       , 'prod'
-set :deploy_to_application_name , application
+set :deploy_to_application_name , "#{fetch(:application)}"
 
 
 set :symlinks,  [
@@ -23,7 +22,7 @@ set :symlinks,  [
 # require 'whenever/capistrano'
 # set :whenever_command, 'bundle exec whenever'
 
-default_run_options[:pty] = true
+set :pty, true
 
 set :group_writable, false
 set :scm_verbose, true
@@ -32,39 +31,46 @@ set :scm, :git
 set :deploy_via, :remote_cache
 set :copy_exclude, [".git"]
 
-set :shared_children, shared_children + %w(tmp/sockets public/uploads)
+
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+
+set :linked_dirs, fetch(:linked_dirs, []).push('tmp/sockets', 'public/uploads')
 
 # Bundle config
 set :bundle_binary, "bundle"
 set :bundle_flags,  "--deployment"
 
-set :ssh_options, {
-  forward_agent: true,
-  paranoid: true,
-  keys: "~/.ssh/id_rsa_prod"
-}
+# set :ssh_options, {
+#   forward_agent: true,
+#   paranoid: true,
+#   keys: "~/.ssh/id_rsa_prod"
+# }
 
 
 namespace :assets do
-  task :precompile, :roles => :web do
-    from = source.next_revision(current_revision)
-    if capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ lib/assets/ app/assets/ | wc -l").to_i > 0
-      run_locally("RAILS_ENV=#{rails_env} rake assets:clean && RAILS_ENV=#{rails_env} rake assets:precompile")
-      run_locally "cd public && tar -jcf assets.tar.bz2 assets"
-      top.upload "public/assets.tar.bz2", "#{shared_path}", :via => :scp
-      run "cd #{shared_path} && tar -jxf assets.tar.bz2 && rm assets.tar.bz2"
-      run_locally "rm public/assets.tar.bz2"
-      run_locally("rake assets:clean")
-    else
-      logger.info "Skipping asset precompilation because there were no asset changes"
+  task :precompile do
+    on primary roles :web do
+      from = source.next_revision(current_revision)
+      if capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ lib/assets/ app/assets/ | wc -l").to_i > 0
+        run_locally("RAILS_ENV=#{rails_env} rake assets:clean && RAILS_ENV=#{rails_env} rake assets:precompile")
+        run_locally "cd public && tar -jcf assets.tar.bz2 assets"
+        top.upload "public/assets.tar.bz2", "#{shared_path}", :via => :scp
+        run "cd #{shared_path} && tar -jxf assets.tar.bz2 && rm assets.tar.bz2"
+        run_locally "rm public/assets.tar.bz2"
+        run_locally("rake assets:clean")
+      else
+        logger.info "Skipping asset precompilation because there were no asset changes"
+      end
     end
   end
 
-  task :symlink, roles: :web do
-    run ("rm -rf #{latest_release}/public/assets &&
-          mkdir -p #{latest_release}/public &&
-          mkdir -p #{shared_path}/assets &&
-          ln -s #{shared_path}/assets #{latest_release}/public/assets")
+  task :symlink do
+    on primary roles :web do
+      run ("rm -rf #{latest_release}/public/assets &&
+            mkdir -p #{latest_release}/public &&
+            mkdir -p #{shared_path}/assets &&
+            ln -s #{shared_path}/assets #{latest_release}/public/assets")
+    end
   end
 end
 

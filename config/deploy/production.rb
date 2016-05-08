@@ -3,18 +3,25 @@ set :rails_env,      'production'
 set :deploy_env,     :rails_env
 set :bundle_without,  [:development, :test]
 
+set :user, "rails"
+set :group, "rails"
+set :password, 'jekan777'
+
 set :deploy_to_application_name , 'prod'
 
 set :repo_url, "git@github.com:dirtyev69/newstyle.git"
 
 set :branch, 'cap3'
-set :deploy_to, "/var/www/#{deploy_to_application_name}"
+set :deploy_to, "/var/www/prod"
+
 
 set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
 
 # Настраиваем ssh до сервера
 #set :gateway, "guest@dev-02.snpdev.ru:10332"
-server "5.101.99.155", :app, :web, :db, :primary => true
+# server "5.101.99.155", :app, :web, :db, :primary => true
+server "5.101.99.155", user: fetch(:user), group: fetch(:group), password: fetch(:password), roles: [:app, :web, :db],  :primary => true
+
 
 # Используем rvm
 set :using_rvm, true
@@ -22,12 +29,20 @@ set :rvm_ruby_string, 'ruby-2.2.1'
 set :rvm_type, :user
 
 # Авторизационные данные
-set :user, "rails"
-set :group, "rails"
-set :password, 'jekan777'
+# set :user, "rails"
+# set :group, "rails"
+# set :password, 'jekan777'
 
 # Unicorn config
 set :unicorn_config, "#{current_path}/config/unicorn.rb"
+
+
+set :ssh_options, {
+  forward_agent: true,
+  paranoid: true,
+  keys: "~/.ssh/id_rsa_prod"
+}
+
 
 
 # server-based syntax

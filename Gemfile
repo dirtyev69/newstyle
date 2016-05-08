@@ -47,8 +47,7 @@ gem 'sass-rails'
 gem 'sqlite3'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'sprockets', '>=3.0.0.beta'
-gem 'sprockets-es6'
+gem 'sprockets-rails', '~> 2.3'
 
 gem 'unicorn'
 
@@ -67,7 +66,6 @@ end
 
 group :development do
   gem 'capistrano', '~> 3.5'
-  gem 'capistrano_colors', '~> 0.5.5'
   gem 'capistrano-rails',   '~> 1.1', require: false
   gem 'capistrano-bundler', '~> 1.1', require: false
   gem 'capistrano-ext', '~> 1.2', '>= 1.2.1'
