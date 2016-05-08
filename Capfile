@@ -17,4 +17,6 @@ require 'capistrano/rails'
 # require 'capistrano/passenger'
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
-Dir.glob("/config/deploy/tasks/tasks.rb'").each { |r| import r }
+# Dir.glob('lib/capistrano/tasks/*.cap').each { |r| import r }
+# Dir.glob('lib/capistrano/tasks/*.rb').each { |r| import r }
+# Dir.glob("/config/deploy/tasks/tasks.rb'").each { |r| import r }

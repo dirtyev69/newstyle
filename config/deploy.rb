@@ -34,7 +34,9 @@ set :copy_exclude, [".git"]
 
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
-set :linked_dirs, fetch(:linked_dirs, []).push('tmp/sockets', 'public/uploads')
+# set :linked_dirs, fetch(:linked_dirs, []).push('tmp/sockets', 'public/uploads')
+
+set :linked_dirs, %w{public/uploads tmp/sockets}
 
 # Bundle config
 set :bundle_binary, "bundle"
