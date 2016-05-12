@@ -1,7 +1,7 @@
 .main_header class="#{(controller_name == 'pages' && action_name == 'index') && 'main_header-fixed'}"
   .container
-    = link_to root_url, class: 'main_header__logo' do
-      span Магазин Стиль
+    = link_to root_url, class: 'main_header__logo'
+      = image_tag('logo2.png', class: 'img-responsive')
 
     = link_to fa_icon('bars'), 'javascript:void(0)', :onclick => "$('@menu').toggleClass('nav-main-opened');", class: 'nav-main__btn'
 

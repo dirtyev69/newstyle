@@ -1,13 +1,15 @@
 .main_header
+  padding: 0
   background: #fff
-  padding-top: 20px
   position: fixed
-  height: 100px
+  height: 90px
   width: 100%
   z-index: 500
   margin: 0 auto
   left: 0
   right: 0
+  box-shadow: 0 2px 0 -1px rgba(0,0,0,0.08)
+
 
 .main_header-fixed
   position: relative
@@ -15,20 +17,20 @@
   left: 0
 
 .main_header__logo
-  display: inline-block
-  vertical-align: top
+  display: block
   width: 170px
   height: 58px
+  margin: 12px 0 0 0
   float: left
   text-indent: -9999999px
-  background: image-url('logo2.png') 0 0 / cover no-repeat
+  // background: image-url('logo2.png') 0 0 / cover no-repeat
   @media (max-width: 992px)
     margin-left: 10px
 
 .nav-main
   float: right
-  margin: 40px 15px 0
-  padding: 0 0 10px 0
+  margin: 0 15px 0
+  padding: 0 0 0
   @media (max-width: $screen-sm)
     margin: 0
     display: none
@@ -45,11 +47,12 @@
         span
           border-bottom: 1px solid #000
     a
-      padding: 22px 20px 34px
-      color: #333
-      font-size: 13px
+      display: inline-block
+      padding: 40px 20px 16px
+      color: #666
+      font-size: 15px
       line-height: 20px
-      letter-spacing: 1px
+      letter-spacing: 1.6px
       text-transform: uppercase
       @media (max-width: $screen-sm)
         display: block
