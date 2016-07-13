@@ -3,6 +3,7 @@
 #= require jquery.role
 #= require role
 #= require fotorama
+#= require bootstrap-sass
 
 #= require nprogress/nprogress.js
 #= require imagesloaded/imagesloaded.pkgd
