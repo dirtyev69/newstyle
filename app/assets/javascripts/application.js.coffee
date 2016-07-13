@@ -41,7 +41,7 @@ class Style
 
     new Lib.Pagi(@$container.find('@pagination'))
 
-    # new Lib.SortByType(@$container.find('@paginatable'))
+    new Lib.SortByType(@$container.find('@paginatable'))
 
     new Lib.ViewSwither(@$container)
 
