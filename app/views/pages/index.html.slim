@@ -10,10 +10,10 @@
 /   = image_tag('sale.jpg', alt: 'сезонная распродажа', class: 'img-responsive')
 
 = content_for (:test)
-  .fotorama.visible-xs-block@fotorama  data-width="100%" data-height='auto' data-autoplay="true" data-fit="cover" data-nav="false" data-arrow='false' data-transition='crossfade'
+  .fotorama@fotorama  data-width="100%" data-height='auto' data-autoplay="true" data-fit="cover" data-nav="false" data-arrow='false' data-transition='crossfade'
     = image_tag('sale.jpg', alt: 'сезонная распродажа')
     = image_tag('pic_summer.jpg', alt: 'Pikolinas Summer 2016')
-    = image_tag('vk.jpg', alt: 'Получить Скидку 5%')
+    = image_tag('vk.jpg', alt: 'Получить Скидку 5%', class: 'img-responsive')
     = image_tag('BeautiFeel2.jpg', alt: 'Beautifeel')
     = image_tag('2016.jpg', alt: 'Spring Summer 2016')
 
