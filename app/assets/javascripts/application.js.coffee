@@ -68,7 +68,7 @@ class Style
 
     autosize(@$container.find('@autosize'))
 
-    @$container.find('@fotorama').fotorama();
+    @$container.find('@fotorama').fotorama()
 
     @$container.find('@modal').on 'hidden.bs.modal', ->
       $(this).removeData('bs.modal')
