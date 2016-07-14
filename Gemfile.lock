@@ -181,6 +181,7 @@ GEM
       rails-assets-ev-emitter (~> 1.0.0)
       rails-assets-fizzy-ui-utils (~> 2.0.0)
       rails-assets-get-size (~> 2.0.2)
+    rails-assets-tweenlite (1.11.5)
     rails-assets-underscore (1.8.3)
     rails-assets-underscore.string (3.3.4)
     rails-deprecated_sanitizer (1.0.3)
@@ -310,6 +311,7 @@ DEPENDENCIES
   rails-assets-jquery.lazyload
   rails-assets-masonry
   rails-assets-nprogress
+  rails-assets-tweenlite!
   rails-assets-underscore
   rails-assets-underscore.string
   responders
@@ -334,4 +336,4 @@ DEPENDENCIES
   yui-compressor
 
 BUNDLED WITH
-   1.11.2
+   1.12.3

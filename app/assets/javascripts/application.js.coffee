@@ -4,6 +4,7 @@
 #= require role
 #= require fotorama
 #= require bootstrap-sass
+#= require tweenlite
 
 #= require nprogress/nprogress.js
 #= require imagesloaded/imagesloaded.pkgd

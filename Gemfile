@@ -92,3 +92,5 @@ gem 'rails-assets-underscore'
 gem 'rails-assets-underscore.string'
 
 gem 'rails-assets-fancybox'
+
+gem 'rails-assets-tweenlite', source: 'https://rails-assets.org'

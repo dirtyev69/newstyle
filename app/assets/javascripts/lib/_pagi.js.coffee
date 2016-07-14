@@ -39,10 +39,10 @@ class Lib.Pagi
 
 
           if self.$container.find('@more').length > 0
-            $(document).find('@catalogItem').animate({ opacity: 0 })
+            # $(document).find('@catalogItem').animate({ opacity: 0 })
             self._load(self.$container.find('@more')[0].href)
 
-            $(document).find('@catalogItem').animate({ opacity: 1 })
+            # $(document).find('@catalogItem').animate({ opacity: 1 })
           else
             return false
 
@@ -66,13 +66,31 @@ class Lib.Pagi
         window.history.pushState('string', document.title, url)
 
         if json?
-          $html = $(json.data).css({ opacity: 0 })
+          $html = $(json.data)
+          $html.css('transform', 'translateY(' + 1000 + '%)')
+          # TweenLite.to($html, 0,{ top: 1000 })
+
           $list = $(document).find('@masonry')
 
           $list.append($html).imagesLoaded(
             ->
               self.$container.html(json.pagination)
-              $html.animate({ opacity: 1 })
+              # $html.animate({ transform: 'translateY(0)' })
+
+              # TweenLite.to($('.catalog_item'), 0, {
+              #   css: { display: 'none'}
+              # })
+
+              # TweenLite.to($('.catalog_item'), 1,{ y: 0 })
+              # $('.catalog_item')animate.css('transform', 'translateY('+ 0 + '%)')
+
+              # $('.catalog_item').css('transform', 'translateY(' + 0 + '%)')
+
+              $html.addClass('animate')
+
+              # TweenLite.to($('.catalog_item'), 0, { y: 0 })
+
+              # $('.catalog_item').animate({ transform: 'translateY(0)' })
 
               $list.masonry('appended', $html, true)
 
