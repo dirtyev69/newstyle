@@ -68,29 +68,14 @@ class Lib.Pagi
         if json?
           $html = $(json.data)
           $html.css('transform', 'translateY(' + 1000 + '%)')
-          # TweenLite.to($html, 0,{ top: 1000 })
 
           $list = $(document).find('@masonry')
 
           $list.append($html).imagesLoaded(
             ->
               self.$container.html(json.pagination)
-              # $html.animate({ transform: 'translateY(0)' })
-
-              # TweenLite.to($('.catalog_item'), 0, {
-              #   css: { display: 'none'}
-              # })
-
-              # TweenLite.to($('.catalog_item'), 1,{ y: 0 })
-              # $('.catalog_item')animate.css('transform', 'translateY('+ 0 + '%)')
-
-              # $('.catalog_item').css('transform', 'translateY(' + 0 + '%)')
 
               $html.addClass('animate')
-
-              # TweenLite.to($('.catalog_item'), 0, { y: 0 })
-
-              # $('.catalog_item').animate({ transform: 'translateY(0)' })
 
               $list.masonry('appended', $html, true)
 
