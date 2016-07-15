@@ -20,11 +20,32 @@
   margin: 0 0 40px 0
   transition: opacity .2s
   &:hover
-    opacity: 0.85
+    .gallery__img
+      transform: scale(1.1)
+    .gallery__item__link
+      &:before
+        opacity: 1
+
+.gallery__img
+  transition: all .3s
+  backface-visibility: hidden
+
 
 .gallery__item__link
   position: relative
   display: block
+  overflow: hidden
+  &:before
+    position: absolute
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+    content: ''
+    opacity: 0
+    background: rgba(238, 238, 238, 0.6)
+    transition: opacity .3s
+    z-index: 1
 
 .gallery__item__link-pseudo
   display: block

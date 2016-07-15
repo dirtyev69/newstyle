@@ -40,7 +40,7 @@ h1.hide Каталог обуви
       .col-md-4.col-sm-4.col-xs-12@viewItem
         .gallery__item
           .gallery__item__link
-            = image_tag(item.image_url(:full), class: 'img-responsive', role: 'catalogItem')
+            = image_tag(item.image_url(:full), class: 'gallery__img img-responsive', role: 'catalogItem')
 
             = link_to '', get_previews_path(item), data: { toggle: 'modal', target: '@modal' }, class: 'gallery__item__link-pseudo'
 
